@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class Home extends Component {
 
     state = {
-        data: [],
+        data: {},
         isLoaded: false,
         error: null,
     }
@@ -19,8 +19,9 @@ class Home extends Component {
                 console.log('result DATA', result)
                 this.setState({
                     isLoaded: true,
-                    data: result.data
+                    data: result,
                 })
+                console.log('state DATA', this.state)
             })
             .then(error => {
                 this.setState({
