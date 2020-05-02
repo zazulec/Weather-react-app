@@ -1,5 +1,15 @@
 .navigation {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 60%;
+    margin: auto;
+    padding-top: 20px;
+    cursor: pointer;
+
 }
+.navigation > a {
+    text-decoration: none;
+    color: darkgoldenrod;
+}
+
