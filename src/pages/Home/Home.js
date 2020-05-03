@@ -10,6 +10,7 @@ class Home extends Component {
         isLoaded: false,
         error: null,
         inputCity: 'Gdansk',
+        city: '',
     };
 
     getInitialDataState() {
@@ -49,8 +50,8 @@ class Home extends Component {
 
     handleCurrentWeatherInput = (event) => {
         event.preventDefault()
-        this.setState(this.state.inputCity, event.target.value)
-        console.log(this.state.cityName)
+        this.setState({ city: event.target.value })
+        console.log(this.state.city)
     }
 
     render() {
@@ -70,8 +71,8 @@ class Home extends Component {
             <div>
                 <h1>Choose your city</h1>
                 <FormControl>
-                <Input placeholder="Insert city name here" onSubmit={this.handleCurrentWeatherInput}></Input>
-                <Button>Get current weather</Button>
+                <Input value={this.state.city} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
+                <Button onClick={this.handleCurrentWeatherInput}>Get current weather</Button>
                 </FormControl>
                 <h3 >Current weather in city: {cityName} </h3>
                 Current temperature: {currentTemp}
