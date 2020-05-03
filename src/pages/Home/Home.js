@@ -8,6 +8,7 @@ class Home extends Component {
         data: this.getInitialDataState(),
         isLoaded: false,
         error: null,
+        inputCity: 'Gdansk',
     };
 
     getInitialDataState() {
@@ -24,8 +25,8 @@ class Home extends Component {
             name:"",
         }
     };
-    
-    FETCH_URL_DAY = "http://api.openweathermap.org/data/2.5/weather?q=Gdansk&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5"
+
+    FETCH_URL_DAY = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
     componentDidMount() {
         fetch(this.FETCH_URL_DAY)
