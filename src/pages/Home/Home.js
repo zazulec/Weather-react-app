@@ -8,7 +8,6 @@ class Home extends Component {
         data: this.getInitialDataState(),
         isLoaded: false,
         error: null,
-        currentTemp: {},
     }
 
     FETCH_URL = "http://api.openweathermap.org/data/2.5/weather?q=Gdansk&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5"
@@ -21,7 +20,6 @@ class Home extends Component {
                     isLoaded: true,
                     data: result,
                 })
-
             })
             .catch(error => {
                 this.setState({
@@ -37,27 +35,45 @@ class Home extends Component {
             weather: [],
             main: {
                 temp: null,
+                feels_like: null,
             },
+            wind: {
+                speed: null,
+                deg: null,
+            },
+            name:"",
         }
     }
 
     render() {
-        const { data } = this.state
-        const dayWeather = data.weather.map( element =>
-            <div key={element.id}>
-                {element.description}
-            </div>
-
-        )
+        const { data } = this.state;
+        const cityName = data.name;
         const currentTemp = data.main.temp;
+        const sensedTemp = Math.round(data.main.feels_like);
+        const windSpeed = data.wind.speed;
+        const windDirection = data.wind.deg;
+        const description = data.weather.map(element =>
+            <div key={element.id}>
+                Description:{element.description}
+            </div>
+        );
         
+       
+
 
         return (
             <div>
                 <h1>Probably the best weather App in the World</h1>
-                <h3 >Current temp</h3>
-                {dayWeather}
-                {currentTemp}
+                <h3 >Current weather in {cityName} </h3>
+                Current temperature: {currentTemp}
+                <br></br>
+                Sensed temperature: {sensedTemp}
+                <br></br>
+                Wind speed: {windSpeed}
+                <br></br>
+                Wind direction: {windDirection}
+                <br></br>
+                {description}
             </div>
         )
     }
