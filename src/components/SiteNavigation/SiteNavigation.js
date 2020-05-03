@@ -6,7 +6,7 @@ const SiteNavigation = () => {
 
     return(
         <div className='navigation'>
-            <Link to='/'>Home</Link>
+            <Link to='/'>Current weather</Link>
             <Link to='/FiveDays'>Five days forecast</Link>
         </div>
     )

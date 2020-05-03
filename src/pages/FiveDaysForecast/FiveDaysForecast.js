@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './FiveDaysForecast.css'
 class FiveDaysForecast extends Component {
 
     state = {
@@ -48,31 +48,26 @@ class FiveDaysForecast extends Component {
             })
     };
 
-
-
     render() {
         const { data } = this.state;
         const cityName = data.city.name;
         const weatherInfo = data.list.map(element =>
-            <div key={element.dt}>
+            <div key={element.dt} className="test">
                 <p>{element.dt_txt}</p>
                 <p>Temperature: {element.main.temp}</p>
                 <p>Sensed temperature:{Math.round(element.main.feels_like)}</p>
                 <p>Wind speed: {element.wind.speed}</p>
                 <p>Wind direction: {element.wind.deg}</p>
-                <p>{element.weather[0].description}</p> 
-                
-                
+                <p>{element.weather[0].description}</p>
             </div>
-        )
-
+        );
         return (
             <div>
                 Five days forecast for city: {cityName}
                 {weatherInfo}
             </div>
-        )
+        );
     }
-}
+};
 
 export default FiveDaysForecast;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Input, Button, FormControl } from '@material-ui/core';
 
 
 
@@ -46,7 +47,11 @@ class Home extends Component {
             })
     };
 
-  
+    handleCurrentWeatherInput = (event) => {
+        event.preventDefault()
+        this.setState(this.state.inputCity, event.target.value)
+        console.log(this.state.cityName)
+    }
 
     render() {
         const { data } = this.state;
@@ -63,8 +68,12 @@ class Home extends Component {
 
         return (
             <div>
-                <h1>Probably the best weather App in the World</h1>
-                <h3 >Current weather in city{cityName} </h3>
+                <h1>Choose your city</h1>
+                <FormControl>
+                <Input placeholder="Insert city name here" onSubmit={this.handleCurrentWeatherInput}></Input>
+                <Button>Get current weather</Button>
+                </FormControl>
+                <h3 >Current weather in city: {cityName} </h3>
                 Current temperature: {currentTemp}
                 <br></br>
                 Sensed temperature: {sensedTemp}
