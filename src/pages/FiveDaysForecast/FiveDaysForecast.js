@@ -6,11 +6,12 @@ class FiveDaysForecast extends Component {
         data: this.getInitialDataStateFiveDays(),
         isLoaded: false,
         error: null,
-        inputCity: 'Gdansk',
+        inputCity: 'Lukow',
     };
 
     getInitialDataStateFiveDays() {
         return {
+            list: [],
             weather: [],
             main: {
                 temp: null,
@@ -20,7 +21,9 @@ class FiveDaysForecast extends Component {
                 speed: null,
                 deg: null,
             },
-            name:"",
+            city: {
+                name: "",
+            },
         }
     };
 
@@ -28,28 +31,39 @@ class FiveDaysForecast extends Component {
 
     componentDidMount() {
         fetch(this.FETCH_URL_FIVE_DAYS)
-        .then(response => (response.json()))
-        .then(result => {
-            this.setState({
-                isLoaded: true,
-                data: result,
+            .then(response => (response.json()))
+            .then(result => {
+                this.setState({
+                    isLoaded: true,
+                    data: result,
+                })
+                console.log(this.state.data.list)
             })
-        })
-        .catch(error => {
-            this.setState({
-                data: this.getInitialDataStateFiveDays(),
-                isLoaded: true,
-                error
-            });
-        })
+            .catch(error => {
+                this.setState({
+                    data: this.getInitialDataStateFiveDays(),
+                    isLoaded: true,
+                    error
+                });
+            })
     };
 
-   
+
 
     render() {
+        const { data } = this.state;
+        const cityName = data.city.name;
+        const weatherInfo = data.list.map(element =>
+            <div key={element.dt}>
+                {element.main.temp}
+            </div>
+        )
+
         return (
             <div>
-                5 dniowa pogoda
+                5 dniowa pogoda dla {cityName}
+
+                {weatherInfo}
             </div>
         )
     }

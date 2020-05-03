@@ -51,7 +51,7 @@ class Home extends Component {
     render() {
         const { data } = this.state;
         const cityName = data.name;
-        const currentTemp = data.main.temp;
+        const currentTemp = data.main.temp; 
         const sensedTemp = Math.round(data.main.feels_like);
         const windSpeed = data.wind.speed;
         const windDirection = data.wind.deg;
@@ -60,9 +60,6 @@ class Home extends Component {
                 Description:{element.description}
             </div>
         );
-        
-       
-
 
         return (
             <div>
