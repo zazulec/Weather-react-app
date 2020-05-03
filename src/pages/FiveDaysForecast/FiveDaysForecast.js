@@ -55,14 +55,20 @@ class FiveDaysForecast extends Component {
         const cityName = data.city.name;
         const weatherInfo = data.list.map(element =>
             <div key={element.dt}>
-                {element.main.temp}
+                <p>{element.dt_txt}</p>
+                <p>Temperature: {element.main.temp}</p>
+                <p>Sensed temperature:{Math.round(element.main.feels_like)}</p>
+                <p>Wind speed: {element.wind.speed}</p>
+                <p>Wind direction: {element.wind.deg}</p>
+                <p>{element.weather[0].description}</p> 
+                
+                
             </div>
         )
 
         return (
             <div>
-                5 dniowa pogoda dla {cityName}
-
+                Five days forecast for city: {cityName}
                 {weatherInfo}
             </div>
         )

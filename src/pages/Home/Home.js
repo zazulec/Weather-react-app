@@ -64,7 +64,7 @@ class Home extends Component {
         return (
             <div>
                 <h1>Probably the best weather App in the World</h1>
-                <h3 >Current weather in {cityName} </h3>
+                <h3 >Current weather in city{cityName} </h3>
                 Current temperature: {currentTemp}
                 <br></br>
                 Sensed temperature: {sensedTemp}
