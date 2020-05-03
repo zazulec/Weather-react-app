@@ -8,12 +8,27 @@ class Home extends Component {
         data: this.getInitialDataState(),
         isLoaded: false,
         error: null,
-    }
+    };
 
-    FETCH_URL = "http://api.openweathermap.org/data/2.5/weather?q=Gdansk&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5"
+    getInitialDataState() {
+        return {
+            weather: [],
+            main: {
+                temp: null,
+                feels_like: null,
+            },
+            wind: {
+                speed: null,
+                deg: null,
+            },
+            name:"",
+        }
+    };
+    
+    FETCH_URL_DAY = "http://api.openweathermap.org/data/2.5/weather?q=Gdansk&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5"
 
     componentDidMount() {
-        fetch(this.FETCH_URL)
+        fetch(this.FETCH_URL_DAY)
             .then(response => (response.json()))
             .then(result => {
                 this.setState({
@@ -30,20 +45,7 @@ class Home extends Component {
             })
     };
 
-    getInitialDataState() {
-        return {
-            weather: [],
-            main: {
-                temp: null,
-                feels_like: null,
-            },
-            wind: {
-                speed: null,
-                deg: null,
-            },
-            name:"",
-        }
-    }
+  
 
     render() {
         const { data } = this.state;
