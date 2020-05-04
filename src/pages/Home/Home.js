@@ -23,12 +23,12 @@ class Home extends Component {
                 speed: null,
                 deg: null,
             },
-            name:"",
+            name: "",
         }
     };
 
-    
-     dupa = () =>  {
+
+    getForecastData = () => {
         this.FETCH_URL_DAY = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
 
@@ -52,13 +52,19 @@ class Home extends Component {
     handleCurrentWeatherInput = (event) => {
         event.preventDefault()
         this.setState({ inputCity: event.target.value })
-        console.log(this.state.city)
+    }
+
+    makeForecastFetch = () => {
+        this.getForecastData()
+        this.setState({ inputCity: ''})
     }
 
     render() {
-        const { data } = this.state;
+        const { data, isLoaded } = this.state;
+
+
         const cityName = data.name;
-        const currentTemp = data.main.temp; 
+        const currentTemp = data.main.temp;
         const sensedTemp = Math.round(data.main.feels_like);
         const windSpeed = data.wind.speed;
         const windDirection = data.wind.deg;
@@ -67,13 +73,12 @@ class Home extends Component {
                 Description:{element.description}
             </div>
         );
-
-        return (
+        const isInputCityEntered = isLoaded ?
             <div>
                 <h1>Choose your city</h1>
                 <FormControl>
-                <Input value={this.state.city} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
-                <Button onClick={this.dupa}>Get current weather</Button>
+                    <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
+                    <Button onClick={this.makeForecastFetch}>Get current weather</Button>
                 </FormControl>
                 <h3 >Current weather in city: {cityName} </h3>
                 Current temperature: {currentTemp}
@@ -85,6 +90,19 @@ class Home extends Component {
                 Wind direction: {windDirection}
                 <br></br>
                 {description}
+            </div> :
+            <div>
+                <h1>Choose your city</h1>
+                <FormControl>
+                    <Input value={this.state.city} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
+                    <Button onClick={this.makeForecastFetch}>Get current weather</Button>
+                </FormControl>
+                <h1>No city entered</h1>
+            </div>;
+
+        return (
+            <div>
+                {isInputCityEntered}
             </div>
         )
     }
