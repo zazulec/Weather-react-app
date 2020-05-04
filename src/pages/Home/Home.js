@@ -9,7 +9,7 @@ class Home extends Component {
         data: this.getInitialDataState(),
         isLoaded: false,
         error: null,
-        inputCity: 'Gdansk',
+        inputCity: 'Rabka-Zdroj',
         city: '',
     };
 
@@ -28,9 +28,11 @@ class Home extends Component {
         }
     };
 
-    FETCH_URL_DAY = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
+    
+     dupa = () =>  {
+        this.FETCH_URL_DAY = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
-    componentDidMount() {
+
         fetch(this.FETCH_URL_DAY)
             .then(response => (response.json()))
             .then(result => {
@@ -72,7 +74,7 @@ class Home extends Component {
                 <h1>Choose your city</h1>
                 <FormControl>
                 <Input value={this.state.city} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
-                <Button onClick={this.handleCurrentWeatherInput}>Get current weather</Button>
+                <Button onClick={this.dupa}>Get current weather</Button>
                 </FormControl>
                 <h3 >Current weather in city: {cityName} </h3>
                 Current temperature: {currentTemp}
