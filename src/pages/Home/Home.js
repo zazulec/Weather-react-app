@@ -9,8 +9,7 @@ class Home extends Component {
         data: this.getInitialDataState(),
         isLoaded: false,
         error: null,
-        inputCity: 'Rabka-Zdroj',
-        city: '',
+        inputCity: '',
     };
 
     getInitialDataState() {
@@ -52,7 +51,7 @@ class Home extends Component {
 
     handleCurrentWeatherInput = (event) => {
         event.preventDefault()
-        this.setState({ city: event.target.value })
+        this.setState({ inputCity: event.target.value })
         console.log(this.state.city)
     }
 
