@@ -7,7 +7,7 @@ class FiveDaysForecast extends Component {
         data: this.getInitialDataStateForFiveDays(),
         isLoaded: false,
         error: null,
-        inputCity: 'gdansk',
+        inputCity: '',
     };
 
     getInitialDataStateForFiveDays() {
@@ -23,14 +23,16 @@ class FiveDaysForecast extends Component {
                 deg: null,
             },
             city: {
-                name: "",
+                name: '',
             },
         }
     };
 
-    FETCH_URL_FIVE_DAYS = `http://api.openweathermap.org/data/2.5/forecast?units=metric&q=${this.state.inputCity}&appid=2e2ff6c3d5791be198f04c78b94573e5`
+    
 
-    componentDidMount() {
+    getFiveDaysForecast() {
+        this.FETCH_URL_FIVE_DAYS = `http://api.openweathermap.org/data/2.5/forecast?units=metric&q=${this.state.inputCity}&appid=2e2ff6c3d5791be198f04c78b94573e5`
+        
         fetch(this.FETCH_URL_FIVE_DAYS)
             .then(response => (response.json()))
             .then(result => {
@@ -49,6 +51,16 @@ class FiveDaysForecast extends Component {
             })
     };
 
+    handleForecastInput = (event) => {
+        event.preventDefault()
+        this.setState({inputCity: event.target.value})
+    }
+
+    makeForecastFetch = () => {
+        this.getFiveDaysForecast()
+        this.setState({ inputCity: ''})
+    }
+
     render() {
         const { data, isLoaded } = this.state;
         const cityName = data.city.name;
@@ -64,9 +76,9 @@ class FiveDaysForecast extends Component {
         );
         const isInputCityEntered = isLoaded ?
             <div>
+                <h1>Choose your city</h1>
                 <FormControl>
-                    <h1>Choose your city</h1>
-                    <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
+                    <Input value={this.state.inputCity} onChange={this.handleForecastInput} placeholder="Insert city name here" ></Input>
                     <Button onClick={this.makeForecastFetch}>Get current weather</Button>
                 </FormControl>
                 <h3 >Weather forecast for city: {cityName} </h3>
@@ -75,7 +87,7 @@ class FiveDaysForecast extends Component {
             <div>
                 <h1>Choose your city</h1>
                 <FormControl>
-                    <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
+                    <Input value={this.state.inputCity} onChange={this.handleForecastInput} placeholder="Insert city name here" ></Input>
                     <Button onClick={this.makeForecastFetch}>Get weather forecast</Button>
                 </FormControl>
                 <h1>No city entered</h1>

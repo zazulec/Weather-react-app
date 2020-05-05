@@ -5,7 +5,7 @@ function Header() {
     
     return(
         <div className='headerTitle'>
-            Probably the best header in this app!
+            Probably the best weather app in this repository!
         </div>
     )
 }

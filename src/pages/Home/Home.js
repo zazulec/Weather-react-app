@@ -28,9 +28,8 @@ class Home extends Component {
     };
 
 
-    getForecastData = () => {
+    getWeatherData = () => {
         this.FETCH_URL_DAY = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
-
 
         fetch(this.FETCH_URL_DAY)
             .then(response => (response.json()))
@@ -54,8 +53,8 @@ class Home extends Component {
         this.setState({ inputCity: event.target.value })
     }
 
-    makeForecastFetch = () => {
-        this.getForecastData()
+    makeCurrentWeatherFetch = () => {
+        this.getWeatherData()
         this.setState({ inputCity: ''})
     }
 
@@ -77,7 +76,7 @@ class Home extends Component {
                 <h1>Choose your city</h1>
                 <FormControl>
                     <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
-                    <Button onClick={this.makeForecastFetch}>Get current weather</Button>
+                    <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </FormControl>
                 <h3 >Current weather in city: {cityName} </h3>
                 Current temperature: {currentTemp}
@@ -94,7 +93,7 @@ class Home extends Component {
                 <h1>Choose your city</h1>
                 <FormControl>
                     <Input value={this.state.city} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
-                    <Button onClick={this.makeForecastFetch}>Get current weather</Button>
+                    <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </FormControl>
                 <h1>No city entered</h1>
             </div>;
