@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './FiveDaysForecast.css'
 import { Input, Button, FormControl } from '@material-ui/core';
+import WeatherRechart from '../../components/WeatherRechart/WeatherRechart';
+
 class FiveDaysForecast extends Component {
 
     state = {
@@ -8,6 +10,7 @@ class FiveDaysForecast extends Component {
         isLoaded: false,
         error: null,
         inputCity: '',
+        
     };
 
     getInitialDataStateForFiveDays() {
@@ -83,6 +86,7 @@ class FiveDaysForecast extends Component {
                 </FormControl>
                 <h3 >Weather forecast for city: {cityName} </h3>
                 {weatherInfo}
+                <WeatherRechart/>
             </div> :
             <div>
                 <h1>Choose your city</h1>
