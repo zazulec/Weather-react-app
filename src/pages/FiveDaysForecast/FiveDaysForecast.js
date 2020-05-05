@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './FiveDaysForecast.css'
 import { Input, Button, FormControl } from '@material-ui/core';
 import WeatherRechart from '../../components/WeatherRechart/WeatherRechart';
+import RechartInput from '../../components/RechartInput/RechartInput';
 
 class FiveDaysForecast extends Component {
 
@@ -79,6 +80,8 @@ class FiveDaysForecast extends Component {
         );
         const isInputCityEntered = isLoaded ?
             <div>
+                
+                <RechartInput data={data}/>
                 <WeatherRechart
                 data={data}
                 />

@@ -85,7 +85,7 @@ class Home extends Component {
                 <br></br>
                 Wind speed: {windSpeed}
                 <br></br>
-                Wind direction: {windDirection}
+                Wind direction: {windDirection} 
                 <br></br>
                 {description}
             </div> :
