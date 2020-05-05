@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { RechartInputContext } from '../../context/RechartInputContext';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -23,31 +24,33 @@ export default function RechartInput(props) {
     const handleChange = (event) => {
         setRechartInputData(event.target.value);
     };
-    const data = props.data;
-    const dayOne =  props.data.list[0].dt_txt.toString().slice(0,-8);
-    const dayTwo = props.data.list[0+8].dt_txt.toString().slice(0,-8);
-    const dayThree = props.data.list[0+16].dt_txt.toString().slice(0,-8); 
-    const dayFour = props.data.list[0+24].dt_txt.toString().slice(0,-8);
-    const dayFive = props.data.list[0+32].dt_txt.toString().slice(0,-8);
-    return ( 
+  
+    const dayOne = props.data.list[0].dt_txt.toString().slice(0, -8);
+    const dayTwo = props.data.list[0 + 8].dt_txt.toString().slice(0, -8);
+    const dayThree = props.data.list[0 + 16].dt_txt.toString().slice(0, -8);
+    const dayFour = props.data.list[0 + 24].dt_txt.toString().slice(0, -8);
+    const dayFive = props.data.list[0 + 32].dt_txt.toString().slice(0, -8);
+
+    return (
         <div>
-        <FormControl className = { classes.formControl } >
-        <InputLabel id = "demo-simple-select-helper-label" > Data </InputLabel> 
-        <Select labelId = "demo-simple-select-helper-label"
-        id = "demo-simple-select-helper"
-        value = { rechartInputData }
-        onChange = { handleChange } >
-        <MenuItem value = "" >
-        <em> None </em> </MenuItem> 
-        <MenuItem value = { dayOne.toString()} >{dayOne}</MenuItem> 
-        <MenuItem value = { dayTwo.toString() } > { dayTwo } </MenuItem> 
-        <MenuItem value = { dayThree.toString() } > { dayThree } </MenuItem>
-        <MenuItem value = { dayFour.toString() } >{ dayFour }</MenuItem>
-        <MenuItem value = { dayFive.toString() } >{ dayFive } </MenuItem>
-        </Select> 
-        <FormHelperText> Chose data to display forecast </FormHelperText> 
-        </FormControl>
+            <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select-helper-label"> Data </InputLabel>
+                <Select labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    value={rechartInputData}
+                    onChange={handleChange}>
+                    <MenuItem value="" >
+                        <em> None </em>
+                    </MenuItem>
+                    <MenuItem value={dayOne.toString()}>{dayOne}</MenuItem>
+                    <MenuItem value={dayTwo.toString()}>{dayTwo}</MenuItem>
+                    <MenuItem value={dayThree.toString()}>{dayThree}</MenuItem>
+                    <MenuItem value={dayFour.toString()}>{dayFour}</MenuItem>
+                    <MenuItem value={dayFive.toString()}>{dayFive}</MenuItem>
+                </Select>
+                <FormHelperText>Chose data to display forecast</FormHelperText>
+            </FormControl>
         </div>
-        
+
     );
 }

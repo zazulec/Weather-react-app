@@ -7,16 +7,16 @@ import SiteNavigation from './components/SiteNavigation/SiteNavigation';
 
 function App() {
   return (
-   <BrowserRouter>
-  <Header/>
-  <SiteNavigation/>
-    <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/FiveDays' component={FiveDaysForecast}/>
-    </Switch>
-   </BrowserRouter>
+    <BrowserRouter>
+      <Header />
+      <SiteNavigation />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/FiveDays' component={FiveDaysForecast} />
+      </Switch>
+    </BrowserRouter>
 
-     
+
   );
 }
 
