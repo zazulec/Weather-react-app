@@ -62,7 +62,6 @@ class Home extends Component {
     render() {
         const { data, isLoaded } = this.state;
 
-
         const cityName = data.name;
         const currentTemp = data.main.temp;
         const sensedTemp = Math.round(data.main.feels_like);
