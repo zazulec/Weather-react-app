@@ -9,7 +9,7 @@ class FiveDaysForecast extends Component {
         data: this.getInitialDataStateForFiveDays(),
         isLoaded: false,
         error: null,
-        inputCity: '',
+        inputCity: 'hel',
         
     };
 
@@ -79,6 +79,9 @@ class FiveDaysForecast extends Component {
         );
         const isInputCityEntered = isLoaded ?
             <div>
+                <WeatherRechart
+                data={data}
+                />
                 <h1>Choose your city</h1>
                 <FormControl>
                     <Input value={this.state.inputCity} onChange={this.handleForecastInput} placeholder="Insert city name here" ></Input>
@@ -86,7 +89,7 @@ class FiveDaysForecast extends Component {
                 </FormControl>
                 <h3 >Weather forecast for city: {cityName} </h3>
                 {weatherInfo}
-                <WeatherRechart/>
+                
             </div> :
             <div>
                 <h1>Choose your city</h1>
