@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import RechartInputContext from '../../context/RechartInputContext'
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 
 
 
 function WeatherRechart(props) {
-
+    const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
     const data = props.data.list.map(element => {
         return { name: element.dt_txt, uv: element.main.temp, pv: element.main.feels_like, amt: 60 }
     });

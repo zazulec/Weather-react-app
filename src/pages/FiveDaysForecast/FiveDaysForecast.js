@@ -61,7 +61,6 @@ class FiveDaysForecast extends Component {
         this.getFiveDaysForecast()
         this.setState({ inputCity: '' })
     }
-
     render() {
         const { data, isLoaded } = this.state;
         const cityName = data.city.name;

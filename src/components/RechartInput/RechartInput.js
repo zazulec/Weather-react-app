@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { RechartInputContext } from '../../context/RechartInputContext';
+import React, { useContext } from 'react';
+import  RechartInputContext  from '../../context/RechartInputContext';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -17,14 +17,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function RechartInput(props) {
+export default function RechartInput(props)  {
     const classes = useStyles();
-    const [rechartInputData, setRechartInputData] = useState('');
+    const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
+    // const [rechartInputData, setRechartInputData] = useState('');
 
-    const handleChange = (event) => {
-        setRechartInputData(event.target.value);
-    };
-  
+
+    // const handleChange = (event) => {
+    //     event.preventDefault()
+    //     setRechartInputData(event.target.value);
+        
+        
+    // };
+      
     const dayOne = props.data.list[0].dt_txt.toString().slice(0, -8);
     const dayTwo = props.data.list[0 + 8].dt_txt.toString().slice(0, -8);
     const dayThree = props.data.list[0 + 16].dt_txt.toString().slice(0, -8);
@@ -38,7 +43,7 @@ export default function RechartInput(props) {
                 <Select labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
                     value={rechartInputData}
-                    onChange={handleChange}>
+                    onChange={event=>setRechartInputData(event.target.value)}>
                     <MenuItem value="" >
                         <em> None </em>
                     </MenuItem>

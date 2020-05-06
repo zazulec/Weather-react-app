@@ -1,3 +1,5 @@
-import React from 'react';
+import React, { createContext } from 'react';
 
-export const RechartInputContext = React.createContext('');
+const RechartInputContext = createContext('');
+
+export default RechartInputContext;
