@@ -5,7 +5,7 @@ import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tool
 function WeatherRechart(props) {
     const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
     const data = props.data.list
-        // .includes(toString(rechartInputData))
+        .filter(element=> element.dt_txt.includes(rechartInputData))
         .map(element => {
             return { name: element.dt_txt, uv: element.main.temp, pv: element.main.feels_like, amt: 60 }
         });
