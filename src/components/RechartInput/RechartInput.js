@@ -20,21 +20,12 @@ const useStyles = makeStyles((theme) => ({
 export default function RechartInput(props)  {
     const classes = useStyles();
     const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
-    // const [rechartInputData, setRechartInputData] = useState('');
-
-
-    // const handleChange = (event) => {
-    //     event.preventDefault()
-    //     setRechartInputData(event.target.value);
-        
-        
-    // };
       
-    const dayOne = props.data.list[0].dt_txt.toString().slice(0, -8);
-    const dayTwo = props.data.list[0 + 8].dt_txt.toString().slice(0, -8);
-    const dayThree = props.data.list[0 + 16].dt_txt.toString().slice(0, -8);
-    const dayFour = props.data.list[0 + 24].dt_txt.toString().slice(0, -8);
-    const dayFive = props.data.list[0 + 32].dt_txt.toString().slice(0, -8);
+    const dayOne = props.data.list[0].dt_txt.toString().slice(0, -9);
+    const dayTwo = props.data.list[0 + 8].dt_txt.toString().slice(0, -9);
+    const dayThree = props.data.list[0 + 16].dt_txt.toString().slice(0, -9);
+    const dayFour = props.data.list[0 + 24].dt_txt.toString().slice(0, -9);
+    const dayFive = props.data.list[0 + 32].dt_txt.toString().slice(0, -9);
 
     return (
         <div>

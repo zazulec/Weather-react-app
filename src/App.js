@@ -9,7 +9,6 @@ import RechartInputContext from './context/RechartInputContext';
 function App() {
 
   const [rechartInputData, setRechartInputData] = useState('');
-
   const providerValue = useMemo(() =>({ rechartInputData, setRechartInputData}), [rechartInputData,setRechartInputData]);
   
   return (
