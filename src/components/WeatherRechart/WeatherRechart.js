@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 
 
@@ -16,8 +16,10 @@ function WeatherRechart(props) {
             <LineChart width={50} height={50} data={data}>
                 <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                 <Line type="monotone" dataKey="pv" stroke="pink" />
+                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                 <XAxis dataKey="name" />
                 <YAxis />
+                <Tooltip />
             </LineChart>
         </ResponsiveContainer>
         </div>
