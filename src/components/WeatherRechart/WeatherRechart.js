@@ -3,13 +3,13 @@ import RechartInputContext from '../../context/RechartInputContext'
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 function WeatherRechart(props) {
-    const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
+
+    const { rechartInputData } = useContext(RechartInputContext);
     const data = props.data.list
         .filter(element=> element.dt_txt.includes(rechartInputData))
         .map(element => {
             return { name: element.dt_txt, uv: element.main.temp, pv: element.main.feels_like, amt: 60 }
         });
-// var boolean = array.includes(searchElement[, fromIndex])
     return (
         <div>
             <ResponsiveContainer aspect={1} width="90%" height="40%">

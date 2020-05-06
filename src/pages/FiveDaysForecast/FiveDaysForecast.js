@@ -64,27 +64,27 @@ class FiveDaysForecast extends Component {
     render() {
         const { data, isLoaded } = this.state;
         const cityName = data.city.name;
-        const weatherInfo = data.list.map(element =>
-            <div key={element.dt} className="test">
-                <p>{element.dt_txt}</p>
-                <p>Temperature: {element.main.temp}</p>
-                <p>Sensed temperature:{Math.round(element.main.feels_like)}</p>
-                <p>Wind speed: {element.wind.speed}</p>
-                <p>Wind direction: {element.wind.deg}</p>
-                <p>{element.weather[0].description}</p>
-            </div>
-        );
+        // const weatherInfo = data.list.map(element =>
+        //     <div key={element.dt} className="test">
+        //         <p>{element.dt_txt}</p>
+        //         <p>Temperature: {element.main.temp}</p>
+        //         <p>Sensed temperature:{Math.round(element.main.feels_like)}</p>
+        //         <p>Wind speed: {element.wind.speed}</p>
+        //         <p>Wind direction: {element.wind.deg}</p>
+        //         <p>{element.weather[0].description}</p>
+        //     </div>
+        // );
         const isInputCityEntered = isLoaded ?
             <div>
-                <RechartInput data={data} />
-                <WeatherRechart data={data} />
                 <h1>Choose your city</h1>
                 <FormControl>
                     <Input value={this.state.inputCity} onChange={this.handleForecastInput} placeholder="Insert city name here" ></Input>
                     <Button onClick={this.makeForecastFetch}>Get current weather</Button>
                 </FormControl>
                 <h3 >Weather forecast for city: {cityName} </h3>
-                {weatherInfo}
+                <RechartInput data={data} />
+                <WeatherRechart data={data} />
+                {/* {weatherInfo} */}
             </div> :
             <div>
                 <h1>Choose your city</h1>
