@@ -27,18 +27,19 @@ export default function RechartInput(props)  {
     const dayFour = props.data.list[0 + 24].dt_txt.toString().slice(0, -9);
     const dayFive = props.data.list[0 + 32].dt_txt.toString().slice(0, -9);
 
-    // const handleInputChange = (event) => {
-    //     setRechartInputData(event.target.value);
-    // }
+    const handleInputChange = (event) => {
+        setRechartInputData(event.target.value);
+    };
 
     return (
         <div>
-            <FormControl className={classes.formControl} required='true'>
+            <FormControl className={classes.form} >
                 <InputLabel id="demo-simple-select-helper-label"> Data </InputLabel>
                 <Select labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
-                    // onChange={handleInputChange}>
-                    onChange={(event) =>setRechartInputData(event.target.value)}>
+                    value={rechartInputData}
+                    onChange={handleInputChange}>
+                    {/* onChange={(event) =>setRechartInputData(event.target.value)}> */}
                     {/* <MenuItem value="null" >
                         <em> None</em>
                     </MenuItem> */}

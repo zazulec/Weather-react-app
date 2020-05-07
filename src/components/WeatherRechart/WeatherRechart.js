@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import RechartInputContext from '../../context/RechartInputContext'
-import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 function WeatherRechart(props) {
 
@@ -14,8 +14,9 @@ function WeatherRechart(props) {
         <div>
             <ResponsiveContainer aspect={5} width="90%" height="40%">
                 <LineChart width={50} height={50} data={rechartInputData ? data: null}>
-                    <Line type="monotone" dataKey="temperature" stroke="#8884d8" fill="#8884d8"/>
-                    <Line type="monotone" dataKey="sensedTemperature" stroke="pink" fill="pink"/>
+                <Legend verticalAlign="top" height={36}/>
+                    <Line name='Temperature' type="monotone" dataKey="temperature" stroke="#8884d8" fill="#8884d8"/>
+                    <Line name='Sensed temperature' type="monotone" dataKey="sensedTemperature" stroke="pink" fill="pink"/>
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                     <XAxis dataKey="name" />
                     <YAxis />

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Input, Button, FormControl } from '@material-ui/core';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import './Home.css';
+// import StyledArrow  from './styled/StyledArrow';
 
 
 
@@ -55,12 +58,11 @@ class Home extends Component {
 
     makeCurrentWeatherFetch = () => {
         this.getWeatherData()
-        this.setState({ inputCity: ''})
+        this.setState({ inputCity: '' })
     }
 
     render() {
         const { data, isLoaded } = this.state;
-
         const cityName = data.name;
         const currentTemp = data.main.temp;
         const sensedTemp = Math.round(data.main.feels_like);
@@ -79,15 +81,11 @@ class Home extends Component {
                     <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </FormControl>
                 <h3 >Current weather in city: {cityName} </h3>
-                Current temperature: {currentTemp}
-                <br></br>
-                Sensed temperature: {sensedTemp}
-                <br></br>
-                Wind speed: {windSpeed}
-                <br></br>
-                Wind direction: {windDirection} 
-                <br></br>
-                {description}
+                <p>Current temperature: {currentTemp} &deg;C</p>
+                <p>Sensed temperature: {sensedTemp} &deg;C</p>
+                <p>Wind speed: {`${windSpeed} km/h`}</p>
+                <p>Wind direction: {windDirection} <ArrowUpwardIcon style={{transform: `rotate(${windDirection}deg)`}}></ArrowUpwardIcon> </p> {/*usunąć windDirection gdy będzie działała strzałka*/}
+                <p>{description}</p>
             </div> :
             <div>
                 <h1>Choose your city</h1>

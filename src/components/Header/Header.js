@@ -1,12 +1,14 @@
 import React from 'react';
 import './Header.css';
 
+import { HeaderH1 } from './styled/StyledHeader';
+
 function Header() {
     
     return(
-        <div className='headerTitle'>
+        <HeaderH1>
             Probably the best weather app in this repository!
-        </div>
+        </HeaderH1>
     )
 }
 
