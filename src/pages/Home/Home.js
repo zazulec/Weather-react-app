@@ -37,10 +37,17 @@ class Home extends Component {
         fetch(this.FETCH_URL_DAY)
             .then(response => (response.json()))
             .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    data: result,
-                })
+                console.log(result)
+                if (result.cod === 200) {
+                    this.setState({
+                        isLoaded: true,
+                        data: result,
+                    })
+                } else {
+                    this.setState({
+                        isLoaded:true,
+                    })
+                }
             })
             .catch(error => {
                 this.setState({
@@ -64,6 +71,7 @@ class Home extends Component {
     render() {
         const { data, isLoaded } = this.state;
         const cityName = data.name;
+        console.log(data.main)
         const currentTemp = data.main.temp;
         const sensedTemp = Math.round(data.main.feels_like);
         const windSpeed = data.wind.speed;

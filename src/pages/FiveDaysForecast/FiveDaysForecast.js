@@ -38,10 +38,18 @@ class FiveDaysForecast extends Component {
         fetch(this.FETCH_URL_FIVE_DAYS)
             .then(response => (response.json()))
             .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    data: result,
-                })
+                if (result.cod === 200) {
+                    this.setState({
+                        isLoaded: true,
+                        data: result,
+
+                    })
+                } else {
+                    this.setState({
+                        isLoaded:true,
+                    })
+                }
+                
             })
             .catch(error => {
                 this.setState({
