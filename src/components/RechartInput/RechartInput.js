@@ -27,24 +27,28 @@ export default function RechartInput(props)  {
     const dayFour = props.data.list[0 + 24].dt_txt.toString().slice(0, -9);
     const dayFive = props.data.list[0 + 32].dt_txt.toString().slice(0, -9);
 
+    // const handleInputChange = (event) => {
+    //     setRechartInputData(event.target.value);
+    // }
+
     return (
         <div>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} required='true'>
                 <InputLabel id="demo-simple-select-helper-label"> Data </InputLabel>
                 <Select labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
-                    value={rechartInputData}
-                    onChange={event=>setRechartInputData(event.target.value)}>
-                    <MenuItem value="" >
-                        <em> None </em>
-                    </MenuItem>
+                    // onChange={handleInputChange}>
+                    onChange={(event) =>setRechartInputData(event.target.value)}>
+                    {/* <MenuItem value="null" >
+                        <em> None</em>
+                    </MenuItem> */}
                     <MenuItem value={dayOne.toString()}>{dayOne}</MenuItem>
                     <MenuItem value={dayTwo.toString()}>{dayTwo}</MenuItem>
                     <MenuItem value={dayThree.toString()}>{dayThree}</MenuItem>
                     <MenuItem value={dayFour.toString()}>{dayFour}</MenuItem>
                     <MenuItem value={dayFive.toString()}>{dayFive}</MenuItem>
                 </Select>
-                <FormHelperText>Chose data to display forecast</FormHelperText>
+                <FormHelperText >Chose data to display forecast</FormHelperText>
             </FormControl>
         </div>
 

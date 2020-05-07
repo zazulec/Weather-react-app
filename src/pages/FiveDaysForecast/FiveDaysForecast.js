@@ -81,7 +81,7 @@ class FiveDaysForecast extends Component {
                     <Input value={this.state.inputCity} onChange={this.handleForecastInput} placeholder="Insert city name here" ></Input>
                     <Button onClick={this.makeForecastFetch}>Get current weather</Button>
                 </FormControl>
-                <h3 >Weather forecast for city: {cityName} </h3>
+                <h3>Weather forecast for city:{cityName}</h3>
                 <RechartInput data={data} />
                 <WeatherRechart data={data} />
                 {/* {weatherInfo} */}

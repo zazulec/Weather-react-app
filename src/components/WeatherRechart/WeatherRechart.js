@@ -8,14 +8,14 @@ function WeatherRechart(props) {
     const data = props.data.list
         .filter(element=> element.dt_txt.includes(rechartInputData))
         .map(element => {
-            return { name: element.dt_txt, uv: element.main.temp, pv: element.main.feels_like, amt: 60 }
-        });
+            return { name: element.dt_txt, temperature: element.main.temp, sensedTemperature: element.main.feels_like, amt: 60 }
+        })
     return (
         <div>
-            <ResponsiveContainer aspect={1} width="90%" height="40%">
+            <ResponsiveContainer aspect={5} width="90%" height="40%">
                 <LineChart width={50} height={50} data={rechartInputData ? data: null}>
-                    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                    <Line type="monotone" dataKey="pv" stroke="pink" />
+                    <Line type="monotone" dataKey="temperature" stroke="#8884d8" fill="#8884d8"/>
+                    <Line type="monotone" dataKey="sensedTemperature" stroke="pink" fill="pink"/>
                     <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                     <XAxis dataKey="name" />
                     <YAxis />
