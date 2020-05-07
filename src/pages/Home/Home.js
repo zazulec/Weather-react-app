@@ -37,15 +37,14 @@ class Home extends Component {
         fetch(this.FETCH_URL_DAY)
             .then(response => (response.json()))
             .then(result => {
-                console.log(result)
-                if (result.cod === 200) {
+                if (result.cod === '200') {
                     this.setState({
                         isLoaded: true,
                         data: result,
                     })
                 } else {
                     this.setState({
-                        isLoaded:true,
+                        isLoaded: true,
                     })
                 }
             })
@@ -92,7 +91,7 @@ class Home extends Component {
                 <p>Current temperature: {currentTemp} &deg;C</p>
                 <p>Sensed temperature: {sensedTemp} &deg;C</p>
                 <p>Wind speed: {`${windSpeed} km/h`}</p>
-                <p>Wind direction: {windDirection} <ArrowUpwardIcon style={{transform: `rotate(${windDirection}deg)`}}></ArrowUpwardIcon> </p> {/*usunąć windDirection gdy będzie działała strzałka*/}
+                <p>Wind direction: {windDirection} <ArrowUpwardIcon style={{ transform: `rotate(${windDirection}deg)` }}></ArrowUpwardIcon> </p> {/*usunąć windDirection gdy będzie działała strzałka*/}
                 <p>{description}</p>
             </div> :
             <div>

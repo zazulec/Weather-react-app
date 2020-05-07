@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 export default function RechartInput(props)  {
     const classes = useStyles();
     const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
-      
+    console.log(props.data)
     const dayOne = props.data.list[0].dt_txt.toString().slice(0, -9);
     const dayTwo = props.data.list[0 + 8].dt_txt.toString().slice(0, -9);
     const dayThree = props.data.list[0 + 16].dt_txt.toString().slice(0, -9);

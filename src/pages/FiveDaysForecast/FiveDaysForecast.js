@@ -29,6 +29,7 @@ class FiveDaysForecast extends Component {
             city: {
                 name: '',
             },
+            dt_txt: '',
         }
     };
 
@@ -38,18 +39,17 @@ class FiveDaysForecast extends Component {
         fetch(this.FETCH_URL_FIVE_DAYS)
             .then(response => (response.json()))
             .then(result => {
-                if (result.cod === 200) {
+                if (result.cod === '200') {
                     this.setState({
                         isLoaded: true,
                         data: result,
-
                     })
                 } else {
                     this.setState({
-                        isLoaded:true,
+                        isLoaded: true,
                     })
                 }
-                
+
             })
             .catch(error => {
                 this.setState({
@@ -69,19 +69,10 @@ class FiveDaysForecast extends Component {
         this.getFiveDaysForecast()
         this.setState({ inputCity: '' })
     }
+    
     render() {
         const { data, isLoaded } = this.state;
         const cityName = data.city.name;
-        // const weatherInfo = data.list.map(element =>
-        //     <div key={element.dt} className="test">
-        //         <p>{element.dt_txt}</p>
-        //         <p>Temperature: {element.main.temp}</p>
-        //         <p>Sensed temperature:{Math.round(element.main.feels_like)}</p>
-        //         <p>Wind speed: {element.wind.speed}</p>
-        //         <p>Wind direction: {element.wind.deg}</p>
-        //         <p>{element.weather[0].description}</p>
-        //     </div>
-        // );
         const isInputCityEntered = isLoaded ?
             <div>
                 <h1>Choose your city</h1>
@@ -90,9 +81,12 @@ class FiveDaysForecast extends Component {
                     <Button onClick={this.makeForecastFetch}>Get current weather</Button>
                 </FormControl>
                 <h3>Weather forecast for city:{cityName}</h3>
-                <RechartInput data={data} />
-                <WeatherRechart data={data} />
-                {/* {weatherInfo} */}
+                {data.list.length > 0 ?
+                    <div>
+                        <RechartInput data={data} />
+                        <WeatherRechart data={data} />
+                    </div> : <p>Please enter city name to display forecast</p>}
+
             </div> :
             <div>
                 <h1>Choose your city</h1>
