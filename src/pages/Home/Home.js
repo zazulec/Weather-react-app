@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Button, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import { HomeH1, HomeH3, Wrapper } from './styled/StyledHome';
 
 class Home extends Component {
 
@@ -77,13 +78,17 @@ class Home extends Component {
         );
         const isInputCityEntered = isLoaded ?
             <div>
-                <h1>Choose your city</h1>
+                <HomeH1>Choose your city:</HomeH1>
+                <Wrapper>
                 <FormControl>
                     <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
                     <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </FormControl>
-                {/* {data.main.temp === null ? <div>Enter city name to display current weather</div> : <div></div> } */} 
-                <h3 >Current weather in city: {cityName} </h3>
+                </Wrapper>
+                {cityName ?
+                    <HomeH3>Current weather in city: {cityName} </HomeH3> :
+                    <HomeH3> Please insert city name or write it corectly.</HomeH3>}
+                <Wrapper> 
                 <div>Current temperature: {currentTemp} &deg;C</div>
                 <div>Sensed temperature: {sensedTemp} &deg;C</div>
                 <div>Wind speed: {`${windSpeed} km/h`}</div>
@@ -93,14 +98,15 @@ class Home extends Component {
                     </ArrowUpwardIcon>
                 </div>
                 <div>{description}</div>
+                </Wrapper>
             </div> :
             <div>
-                <h1>Choose your city</h1>
+                <HomeH1>Choose your city</HomeH1>
                 <FormControl>
                     <Input value={this.state.city} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
                     <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </FormControl>
-                <h1>No city entered</h1>
+                <HomeH1>No city entered</HomeH1>
             </div>;
 
         return (
