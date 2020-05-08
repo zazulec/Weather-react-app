@@ -1,11 +1,13 @@
 import React from 'react';
+import { Title } from './styled/StyledWrongUrlPath';
 
 function WrongUrlPath() {
 
     return(
-        <div>
-            <p>Ups, you got lost! You are on the wrong path. Please try Url.</p>
-        </div>
+        <Title>
+            
+            <p>404<br></br>Ups, you got lost! <br></br>You are on the wrong path. Please try repair Url.</p>
+        </Title>
     )
 }
 
