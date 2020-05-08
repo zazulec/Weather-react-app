@@ -1,4 +1,0 @@
-.rotated {
-    transform: rotate(310deg); /* Equal to rotateZ(45deg) */
-    background-color: pink;
-  }

@@ -10,7 +10,7 @@ class FiveDaysForecast extends Component {
         data: this.getInitialDataStateForFiveDays(),
         isLoaded: false,
         error: null,
-        inputCity: 'hel',
+        inputCity: '',
 
     };
 
@@ -49,7 +49,6 @@ class FiveDaysForecast extends Component {
                         isLoaded: true,
                     })
                 }
-
             })
             .catch(error => {
                 this.setState({
@@ -69,7 +68,7 @@ class FiveDaysForecast extends Component {
         this.getFiveDaysForecast()
         this.setState({ inputCity: '' })
     }
-    
+
     render() {
         const { data, isLoaded } = this.state;
         const cityName = data.city.name;
