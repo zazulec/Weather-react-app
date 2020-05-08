@@ -16,13 +16,13 @@ function App() {
     <BrowserRouter>
       <Header />
       <SiteNavigation />
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <RechartInputContext.Provider value={rechartProviderValue}>
+      <RechartInputContext.Provider value={rechartProviderValue}>
+        <Switch>
+          <Route exact path='/' component={Home} />
           <Route path='/FiveDays' component={FiveDaysForecast} />
-        </RechartInputContext.Provider>
-        <Route component={DefaultPage} />
-      </Switch>
+          <Route component={DefaultPage} />
+        </Switch>
+      </RechartInputContext.Provider>
     </BrowserRouter>
 
   );

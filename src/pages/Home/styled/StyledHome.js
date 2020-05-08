@@ -5,6 +5,7 @@ export const HomeH1 = styled.h1`
     align-item: center;
     justify-content: center;
     font-size: 30px;
+    padding-top: 20px;
 `
 export const HomeH3 = styled.h3`
     display: flex;
