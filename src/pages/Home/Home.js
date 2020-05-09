@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Input, Button, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { HomeH1, HomeH3, Wrapper } from './styled/StyledHome';
+import CurrentWeatherWithGeoLocation from '../../components/CurrentWeatherWithGeoLocation/CurrentWeatherWithGeoLocation';
 
 class Home extends Component {
 
@@ -80,24 +81,26 @@ class Home extends Component {
             <div>
                 <HomeH1>Choose your city:</HomeH1>
                 <Wrapper>
-                <FormControl>
-                    <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
-                    <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
-                </FormControl>
+                    <FormControl>
+                        <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
+                        <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
+                    </FormControl>
+                    <h1>OR</h1>
+                <CurrentWeatherWithGeoLocation />;
                 </Wrapper>
                 {cityName ?
                     <HomeH3>Current weather in city: {cityName} </HomeH3> :
                     <HomeH3> Please insert city name or write it corectly.</HomeH3>}
-                <Wrapper> 
-                <div>Current temperature: {currentTemp} &deg;C</div>
-                <div>Sensed temperature: {sensedTemp} &deg;C</div>
-                <div>Wind speed: {`${windSpeed} km/h`}</div>
-                <div>Wind direction:
+                <Wrapper>
+                    <div>Current temperature: {currentTemp} &deg;C</div>
+                    <div>Sensed temperature: {sensedTemp} &deg;C</div>
+                    <div>Wind speed: {`${windSpeed} km/h`}</div>
+                    <div>Wind direction:
                      <ArrowUpwardIcon
-                        style={{ transform: `rotate(${windDirection}deg)` }} >
-                    </ArrowUpwardIcon>
-                </div>
-                <div>{description}</div>
+                            style={{ transform: `rotate(${windDirection}deg)` }} >
+                        </ArrowUpwardIcon>
+                    </div>
+                    <div>{description}</div>
                 </Wrapper>
             </div> :
             <div>
@@ -107,7 +110,10 @@ class Home extends Component {
                     <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </FormControl>
                 <HomeH1>No city entered</HomeH1>
-            </div>;
+                <p>OR</p>
+                <CurrentWeatherWithGeoLocation />;
+            </div>
+
 
         return (
             <div>
