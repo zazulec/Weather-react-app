@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Input, Button, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 class CurrentWeatherWithGeoLocation extends Component {
@@ -36,10 +35,10 @@ class CurrentWeatherWithGeoLocation extends Component {
                 longitude: position.coords.longitude,
                 locationLoaded: true,
             }),
-            err => console.log(err)
+            // err => console.log(err)
         );
-        console.log('lati', this.state.latitude)
-        console.log('long', this.state.longitude)
+        // console.log('lati', this.state.latitude)
+        // console.log('long', this.state.longitude)
     }
 
     getCurrentWeatherWithGeoLocation = () => {
@@ -100,7 +99,7 @@ class CurrentWeatherWithGeoLocation extends Component {
             <div key={element.id}>
                 Description:{element.description}
             </div>
-        )
+        );
         const isFetchDataLoaded = isLoaded ?
             <div>
                 <div>City Name: {cityName}</div>
@@ -112,10 +111,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                         style={{ transform: `rotate(${windDirection}deg)` }} >
                     </ArrowUpwardIcon></div>
                 <div>{description}</div>
-            </div> :
-            <div>
-
-            </div>
+            </div> : null;
 
         return (
             <div>
@@ -124,7 +120,6 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <button onClick={this.getGeoPosition}>Get current position</button>
                 {showGetCurrentWeatherButton}
                 {isFetchDataLoaded}
-
             </div>
         )
     }

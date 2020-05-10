@@ -56,8 +56,6 @@ class Home extends Component {
             })
     };
 
- 
-
     handleCurrentWeatherInput = (event) => {
         event.preventDefault()
         this.setState({ inputCity: event.target.value })
@@ -89,7 +87,7 @@ class Home extends Component {
                         <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                     </FormControl>
                     <h1>OR</h1>
-                <CurrentWeatherWithGeoLocation value={this.state}/>; {/*dwa miejsca */}
+                <CurrentWeatherWithGeoLocation value={this.state}/>; 
                 </Wrapper>
                 {cityName ?
                     <HomeH3>Current weather in city: {cityName} </HomeH3> :
@@ -114,7 +112,7 @@ class Home extends Component {
                 </FormControl>
                 <HomeH1>No city entered</HomeH1>
                 <p>OR</p>
-                <CurrentWeatherWithGeoLocation value={this.state}/> {/*dwa miejsca */}
+                <CurrentWeatherWithGeoLocation value={this.state}/>
             </div>
 
 

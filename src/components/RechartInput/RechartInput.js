@@ -15,8 +15,7 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
-})
-);
+}));
 
 export default function RechartInput(props) {
 
@@ -40,10 +39,6 @@ export default function RechartInput(props) {
                     id="demo-simple-select-helper"
                     value={rechartInputData}
                     onChange={handleInputChange}>
-                    {/* onChange={(event) =>setRechartInputData(event.target.value)}> */}
-                    {/* <MenuItem value="null" >
-                        <em> None</em>
-                    </MenuItem> */}
                     <MenuItem value={dayOne.toString()}>{dayOne}</MenuItem>
                     <MenuItem value={dayTwo.toString()}>{dayTwo}</MenuItem>
                     <MenuItem value={dayThree.toString()}>{dayThree}</MenuItem>

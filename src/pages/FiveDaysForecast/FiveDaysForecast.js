@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import './FiveDaysForecast.css'
 import { Input, Button, FormControl } from '@material-ui/core';
 import WeatherRechart from '../../components/WeatherRechart/WeatherRechart';
 import RechartInput from '../../components/RechartInput/RechartInput';
+import RechartInputContext from '../../context/RechartInputContext';
 
 class FiveDaysForecast extends Component {
 
@@ -58,6 +59,7 @@ class FiveDaysForecast extends Component {
                 });
             })
     };
+    static contextType = RechartInputContext;
 
     handleForecastInput = (event) => {
         event.preventDefault()
@@ -71,6 +73,7 @@ class FiveDaysForecast extends Component {
 
     render() {
         const { data, isLoaded } = this.state;
+        const { rechartInputData } = this.context;
         const cityName = data.city.name;
         const isInputCityEntered = isLoaded ?
             <div>
@@ -83,7 +86,7 @@ class FiveDaysForecast extends Component {
                 {data.list.length > 0 ?
                     <div>
                         <RechartInput data={data} />
-                        <WeatherRechart data={data} />
+                        {rechartInputData ? <WeatherRechart data={data} /> : <p>Please choose date to display forecast rechart</p>}
                     </div> : <p>Please enter city name to display forecast</p>}
 
             </div> :
