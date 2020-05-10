@@ -6,7 +6,7 @@ import DefaultPage from './pages/DefaultPage/DefaultPage';
 import FiveDaysForecast from './pages/FiveDaysForecast/FiveDaysForecast';
 import SiteNavigation from './components/SiteNavigation/SiteNavigation';
 import RechartInputContext from './context/RechartInputContext';
-import GetCurrentGeoPosition from './context/RechartInputContext';
+// import GetCurrentGeoPosition from './context/RechartInputContext';
 
 function App() {
 
@@ -16,26 +16,7 @@ function App() {
   // const [ currentGeoPosition, setGetCurrentGeoPosition] = useState();
   // const currentGeoPositionValue = useMemo(() => ({ currentGeoPosition, setGetCurrentGeoPosition }), [currentGeoPosition, setGetCurrentGeoPosition]);
 
-
-  const getGeoWeather = () => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getPosition);
-      }
-      function getPosition(position) {
-        console.log(position.coords.latitude, position.coords.longitude);
-        // setGetCurrentGeoPosition( {
-        //   latitude: position.coords.latitude,
-        //   longitude: position.coords.longitude
-        // });
-        
-      }
-}
-
-  useEffect(() => {
-    getGeoWeather()
-   
-  },[]);
-
+  
   return (
     <BrowserRouter>
       <Header />
@@ -43,8 +24,8 @@ function App() {
       <RechartInputContext.Provider value={rechartProviderValue}>
         {/* <GetCurrentGeoPosition.Provider value={currentGeoPositionValue}> */}
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/FiveDays' component={FiveDaysForecast}/>
+            <Route exact path='/' component={Home} /*value={{...currentGeoPosition}} */ />
+            <Route path='/FiveDays' component={FiveDaysForecast} />
             <Route component={DefaultPage} />
           </Switch>
         {/* </GetCurrentGeoPosition.Provider> */}
