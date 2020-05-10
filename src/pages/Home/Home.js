@@ -11,8 +11,6 @@ class Home extends Component {
         isLoaded: false,
         error: null,
         inputCity: '',
-        latitude: null,
-        longitude: null,
 
     };
 
