@@ -14,7 +14,6 @@ class FiveDaysForecast extends Component {
 
     };
 
-  
     getInitialDataStateForFiveDays() {
         return {
             list: [],
