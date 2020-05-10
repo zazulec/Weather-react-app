@@ -8,7 +8,7 @@ function WeatherRechart(props) {
     const data = props.data.list
         .filter(element=> element.dt_txt.includes(rechartInputData))
         .map(element => {
-            return { name: element.dt_txt, temperature: element.main.temp, sensedTemperature: element.main.feels_like, amt: 60 }
+            return { name: element.dt_txt.toString().slice(10, 19), temperature: element.main.temp, sensedTemperature: element.main.feels_like, amt: 60 }
         })
     return (
         <div>
