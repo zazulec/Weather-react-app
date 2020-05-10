@@ -79,7 +79,7 @@ class Home extends Component {
             <div key={element.id}>
                 Description:{element.description}
             </div>
-        );
+        )
         const isInputCityEntered = isLoaded ?
             <div>
                 <HomeH1>Choose your city:</HomeH1>
@@ -114,7 +114,7 @@ class Home extends Component {
                 </FormControl>
                 <HomeH1>No city entered</HomeH1>
                 <p>OR</p>
-                <CurrentWeatherWithGeoLocation value={this.state}/>; {/*dwa miejsca */}
+                <CurrentWeatherWithGeoLocation value={this.state}/> {/*dwa miejsca */}
             </div>
 
 
