@@ -1,5 +1,5 @@
-import React, { Component, useContext } from 'react';
-import './FiveDaysForecast.css'
+import React, { Component } from 'react';
+import './FiveDaysForecast.scss'
 import { Input, Button, FormControl } from '@material-ui/core';
 import WeatherRechart from '../../components/WeatherRechart/WeatherRechart';
 import RechartInput from '../../components/RechartInput/RechartInput';
