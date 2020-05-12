@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div `
     display: flex;
-    flex-direction: row;
-    padding: 10px;
-    align-items: center;
+    flex-direction: column;
+    align-items: baseline;
     width: 100%;
     height: 100vh;
+    color: white;
      
 `
