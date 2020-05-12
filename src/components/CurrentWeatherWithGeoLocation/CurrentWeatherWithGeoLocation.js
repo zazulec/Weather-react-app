@@ -40,10 +40,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                 locationLoaded: true,
                 isLoading: false,
             }),
-            // err => console.log(err)
         );
-        // console.log('lati', this.state.latitude)
-        // console.log('long', this.state.longitude)
     }
 
     getCurrentWeatherWithGeoLocation = () => {
@@ -51,11 +48,6 @@ class CurrentWeatherWithGeoLocation extends Component {
 
         fetch(this.FETCH_URL_GEOLOCATION)
             .then(response => (response.json()))
-            // .then(result => this.setState({
-            //     isLoading: true,
-            //     isLoaded: false,   // czy ten then jest ok
-            //     data: this.getInitialDataState()
-            // }))
             .then(result => {
                 if (result.cod === 200) {
                     this.setState({
