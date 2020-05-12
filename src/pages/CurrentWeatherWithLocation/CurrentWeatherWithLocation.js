@@ -1,7 +1,6 @@
 import React from 'react';
 import CurrentWeatherWithGeoLocation from '../../components/CurrentWeatherWithGeoLocation/CurrentWeatherWithGeoLocation';
 
-
 function CurrentWeatherWithLocation() {
 
     return(

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import image from '../../../img/background/man-3915438_1920.jpg';
 
 export const Wrapper = styled.div `
     display: flex;
@@ -10,5 +9,3 @@ export const Wrapper = styled.div `
     height: 100vh;
      
 `
-
-// {background-image: url(${image});
