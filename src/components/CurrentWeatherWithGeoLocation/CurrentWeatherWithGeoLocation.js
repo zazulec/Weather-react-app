@@ -30,11 +30,15 @@ class CurrentWeatherWithGeoLocation extends Component {
     };
 
     getGeoPosition = () => {
+        this.setState({
+            isLoading: true,
+        });
         navigator.geolocation.getCurrentPosition(
             position => this.setState({
                 latitude: position.coords.latitude,
                 longitude: position.coords.longitude,
                 locationLoaded: true,
+                isLoading: false,
             }),
             // err => console.log(err)
         );
@@ -44,12 +48,13 @@ class CurrentWeatherWithGeoLocation extends Component {
 
     getCurrentWeatherWithGeoLocation = () => {
         this.FETCH_URL_GEOLOCATION = `http://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
+
         fetch(this.FETCH_URL_GEOLOCATION)
             .then(response => (response.json()))
             // .then(result => this.setState({
             //     isLoading: true,
-            //     // isLoaded: false,   // czy ten then jest ok
-            //     // data: this.getInitialDataState()
+            //     isLoaded: false,   // czy ten then jest ok
+            //     data: this.getInitialDataState()
             // }))
             .then(result => {
                 if (result.cod === 200) {

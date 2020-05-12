@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const CurrentWeatherContainer = styled.div`
     display: flex;
     align-items: center;
@@ -8,5 +9,6 @@ export const CurrentWeatherContainer = styled.div`
     padding: 10px;
     width: 100%;
     padding: 50px;
+
 
 `

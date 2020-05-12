@@ -1,14 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './SiteNavigation.scss'
+import { Background } from './styled/StyledBackground';
+import { Navigation, Button } from './styled/StyledNavigation';
+import { Text } from './styled/StyledParagraph';
 
 const SiteNavigation = () => {
 
-    return(
-        <div className='navigation'>
-            <Link to='/'>Current weather</Link>
-            <Link to='/FiveDays'>Five days forecast</Link>
-        </div>
+    return (
+        <Background >
+            <Navigation>
+                <Button as="a" href="/"> Current weather </Button>
+                <Text> {`<== Choose ==>`}</Text>
+                <Button as="a" href="/FiveDays" > Five days forecast </Button>
+            </Navigation>
+        </Background>
     )
 }
 
