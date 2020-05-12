@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import { Wrapper } from './styled/StyledCurrentWeatherWithGeoLocation';
 
 class CurrentWeatherWithGeoLocation extends Component {
 
@@ -115,11 +116,13 @@ class CurrentWeatherWithGeoLocation extends Component {
 
         return (
             <div>
-                <h1>Get current weather by geolocation</h1>
+                <Wrapper>
+                <h1>Get current weather <br></br>by geolocation</h1>
                 {loadingGeoLocalisation}
                 <button onClick={this.getGeoPosition}>Get current position</button>
                 {showGetCurrentWeatherButton}
                 {isFetchDataLoaded}
+                </Wrapper>
             </div>
         )
     }

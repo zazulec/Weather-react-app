@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Input, Button, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 // import './Home.scss';
-import { Wrapper, HomeH1, HomeH3, FormControlWrapper } from './styled/StyledHome';
+import { HomeH1, HomeH3 } from './styled/StyledHome';
+import { Wrapper } from './styled/Wrapper';
+import { CurrentWeatherContainer } from './styled/CurrentWeatherContainer';
 import CurrentWeatherWithGeoLocation from '../../components/CurrentWeatherWithGeoLocation/CurrentWeatherWithGeoLocation';
 
 class Home extends Component {
@@ -80,21 +82,19 @@ class Home extends Component {
             </div>
         )
         const isInputCityEntered = isLoaded ?
-            <div className='homeContainer'>
-                <Wrapper>
+                <>
+                <CurrentWeatherContainer>
                 <HomeH1>Choose your city:</HomeH1>
-                <FormControlWrapper>
                     <FormControl>
                         <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here"></Input>
                         <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                     </FormControl>
+                    </CurrentWeatherContainer>
                     <h1>OR</h1>
                 <CurrentWeatherWithGeoLocation value={this.state}/>; 
-                </FormControlWrapper>
                 {cityName ?
                     <HomeH3>Current weather in city: {cityName} </HomeH3> :
                     <HomeH3> Please insert city name or write it corectly.</HomeH3>}
-                
                     <div>Current temperature: {currentTemp} &deg;C</div>
                     <div>Sensed temperature: {sensedTemp} &deg;C</div>
                     <div>Wind speed: {`${windSpeed} km/h`}</div>
@@ -104,26 +104,26 @@ class Home extends Component {
                         </ArrowUpwardIcon>
                     </div>
                     <div>{description}</div>
-                </Wrapper>
-            </div> :
-            <div className='homeContainer'>
-                <Wrapper>
+               </>
+             :
+                <>
+                <CurrentWeatherContainer>
                 <HomeH1>Choose your city</HomeH1>
                 <FormControl>
                     <Input value={this.state.city} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
                     <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </FormControl>
                 <HomeH1>No city entered</HomeH1>
+                </CurrentWeatherContainer>
                 <HomeH1>OR</HomeH1>
                 <CurrentWeatherWithGeoLocation value={this.state}/>
-                </Wrapper>
-            </div>
+                </>
 
 
         return (
-            <div>
+            <Wrapper>
                 {isInputCityEntered}
-            </div>
+            </Wrapper>
         )
     }
 }

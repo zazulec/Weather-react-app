@@ -4,6 +4,7 @@ import { Input, Button, FormControl } from '@material-ui/core';
 import WeatherRechart from '../../components/WeatherRechart/WeatherRechart';
 import RechartInput from '../../components/RechartInput/RechartInput';
 import RechartInputContext from '../../context/RechartInputContext';
+import { Wrapper } from './styled/StyledFiveDaysForecast';
 
 class FiveDaysForecast extends Component {
 
@@ -88,7 +89,6 @@ class FiveDaysForecast extends Component {
                         <RechartInput data={data} />
                         {rechartInputData ? <WeatherRechart data={data} /> : <p>Please choose date to display forecast rechart</p>}
                     </div> : <p>Please enter city name to display forecast</p>}
-
             </div> :
             <div>
                 <h1>Choose your city</h1>
@@ -99,9 +99,9 @@ class FiveDaysForecast extends Component {
                 <h1>No city entered</h1>
             </div>
         return (
-            <div>
+            <Wrapper>
                 {isInputCityEntered}
-            </div>
+            </Wrapper>
         );
     }
 };
