@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Input, Button, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-// import './Home.scss';
 import { HomeH1, HomeH3 } from './styled/StyledHome';
 import { Wrapper } from './styled/Wrapper';
 import { CurrentWeatherContainer } from './styled/CurrentWeatherContainer';
-import CurrentWeatherWithGeoLocation from '../../components/CurrentWeatherWithGeoLocation/CurrentWeatherWithGeoLocation';
 
 class Home extends Component {
 
@@ -90,8 +88,6 @@ class Home extends Component {
                         <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                     </FormControl>
                     </CurrentWeatherContainer>
-                    <h1>OR</h1>
-                <CurrentWeatherWithGeoLocation value={this.state}/>; 
                 {cityName ?
                     <HomeH3>Current weather in city: {cityName} </HomeH3> :
                     <HomeH3> Please insert city name or write it corectly.</HomeH3>}
@@ -115,8 +111,6 @@ class Home extends Component {
                 </FormControl>
                 <HomeH1>No city entered</HomeH1>
                 </CurrentWeatherContainer>
-                <HomeH1>OR</HomeH1>
-                <CurrentWeatherWithGeoLocation value={this.state}/>
                 </>
 
 
