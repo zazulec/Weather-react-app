@@ -10,6 +10,7 @@ export const HomeH1 = styled.h1`
 `
 export const HomeH3 = styled.h3`
     display: flex;
+    flex-direction: column;
     align-item: center;
     justify-content: center;
     font-size: 20px;
