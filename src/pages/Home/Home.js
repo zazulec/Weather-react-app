@@ -87,7 +87,7 @@ class Home extends Component {
                 <CurrentWeatherContainer>
                     <HomeH1>Choose your city:</HomeH1>
                     <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here"></Input>
-                        <Button  onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
+                        <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </CurrentWeatherContainer>
                 <WeatherInfo>
                     {cityName ?

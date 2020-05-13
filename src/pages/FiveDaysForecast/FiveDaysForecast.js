@@ -94,7 +94,7 @@ class FiveDaysForecast extends Component {
                 <h1>Choose your city</h1>
                 <FormControl>
                     <Input value={this.state.inputCity} onChange={this.handleForecastInput} placeholder="Insert city name here" ></Input>
-                    <Button color="disable"  variant="contained" onClick={this.makeForecastFetch}>Get weather forecast</Button>
+                    <Button onClick={this.makeForecastFetch}>Get weather forecast</Button>
                 </FormControl>
                 <h1>No city entered</h1>
             </div>

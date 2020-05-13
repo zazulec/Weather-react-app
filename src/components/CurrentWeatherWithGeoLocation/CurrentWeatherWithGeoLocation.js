@@ -81,7 +81,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <p>longitude: Loading...</p>
             </> :
             <>
-                <h3>Your current position is:</h3>
+                <h3>Your current position:</h3>
                 <p>latitude: {this.state.latitude}</p>
                 <p>longitude: {this.state.longitude}</p>
             </>

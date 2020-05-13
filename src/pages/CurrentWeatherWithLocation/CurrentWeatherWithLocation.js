@@ -1,12 +1,13 @@
 import React from 'react';
 import CurrentWeatherWithGeoLocation from '../../components/CurrentWeatherWithGeoLocation/CurrentWeatherWithGeoLocation';
+import { Wrapper } from './styled/Wrapper';
 
 function CurrentWeatherWithLocation() {
 
-    return(
-    <div>
-        <CurrentWeatherWithGeoLocation/>
-    </div>
+    return (
+        <Wrapper>
+            <CurrentWeatherWithGeoLocation />
+        </Wrapper>
     )
 }
 
