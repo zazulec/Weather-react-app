@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledCurrentWeatherWithGeoLocation';
+import MapContainer from '../MapContainer/MapContainer';
 
 class CurrentWeatherWithGeoLocation extends Component {
 
@@ -82,6 +83,7 @@ class CurrentWeatherWithGeoLocation extends Component {
             </> :
             <>
                 <h3>Your current position:</h3>
+                
                 <p>latitude: {this.state.latitude}</p>
                 <p>longitude: {this.state.longitude}</p>
             </>
@@ -120,6 +122,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <Button color="disable"  variant="contained" onClick={this.getGeoPosition}>Get current position</Button>
                 {showGetCurrentWeatherButton}
                 {isFetchDataLoaded}
+                <MapContainer />
                 </Wrapper>
             </div>
         )
