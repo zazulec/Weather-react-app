@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import { Button } from './styled/StyledButton';
+import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledCurrentWeatherWithGeoLocation';
 
 class CurrentWeatherWithGeoLocation extends Component {
@@ -87,7 +87,7 @@ class CurrentWeatherWithGeoLocation extends Component {
             </>
         const showGetCurrentWeatherButton = locationLoaded ?
             <Button onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather</Button> :
-            <Button disabled='true' >Get current weather</Button>
+            <ButtonDisabled disabled='true' >Get current weather</ButtonDisabled>
 
         const cityName = data.name;
         const currentTemp = data.main.temp;
