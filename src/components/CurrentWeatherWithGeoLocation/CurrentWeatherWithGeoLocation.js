@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import { Button } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledCurrentWeatherWithGeoLocation';
 
 class CurrentWeatherWithGeoLocation extends Component {
@@ -85,8 +86,8 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <p>longitude: {this.state.longitude}</p>
             </>
         const showGetCurrentWeatherButton = locationLoaded ?
-            <button onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather</button> :
-            <button disabled >Get current weather</button>
+            <Button onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather</Button> :
+            <Button disabled='true' >Get current weather</Button>
 
         const cityName = data.name;
         const currentTemp = data.main.temp;
@@ -116,7 +117,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <Wrapper>
                 <h1>Get current weather <br></br>by geolocation</h1>
                 {loadingGeoLocalisation}
-                <button onClick={this.getGeoPosition}>Get current position</button>
+                <Button color="disable"  variant="contained" onClick={this.getGeoPosition}>Get current position</Button>
                 {showGetCurrentWeatherButton}
                 {isFetchDataLoaded}
                 </Wrapper>

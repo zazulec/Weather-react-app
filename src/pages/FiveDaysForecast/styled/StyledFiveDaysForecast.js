@@ -8,7 +8,8 @@ export const Wrapper = styled.div `
     text-align: center;
     height: 100vh;
     width: 100%;
-    color: darkgoldenrod;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(184,134,11,0.79);
 `
 
 // background-image: url(${imgBackground});

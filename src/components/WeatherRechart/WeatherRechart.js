@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import RechartInputContext from '../../context/RechartInputContext'
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { Overlay } from './styled/StyledWeatherRechart';
+
 
 function WeatherRechart(props) {
 
@@ -12,6 +14,7 @@ function WeatherRechart(props) {
         })
     return (
         <div>
+            <Overlay>
             <ResponsiveContainer aspect={5} width="90%" height="40%">
                 <LineChart width={50} height={50} data={rechartInputData ? data: null}>
                 <Legend verticalAlign="top" height={36}/>
@@ -23,6 +26,7 @@ function WeatherRechart(props) {
                     <Tooltip />
                 </LineChart>
             </ResponsiveContainer>
+            </Overlay>
         </div>
 
     );

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Input, Button, FormControl } from '@material-ui/core';
+import { Input, FormControl } from '@material-ui/core';
 import WeatherRechart from '../../components/WeatherRechart/WeatherRechart';
 import RechartInput from '../../components/RechartInput/RechartInput';
 import RechartInputContext from '../../context/RechartInputContext';
 import { Wrapper } from './styled/StyledFiveDaysForecast';
+import { Button } from './styled/StyledButton';
 
 class FiveDaysForecast extends Component {
 

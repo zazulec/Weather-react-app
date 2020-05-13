@@ -11,7 +11,8 @@ export const Navigation = styled.div`
 `
 export const Button = styled.a`
     text-decoration: none;
-    color: darkgoldenrod;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(184,134,11,0.79);
     border: 3px solid darkgoldenrod;
     padding: 10px;
     font-size: medium;

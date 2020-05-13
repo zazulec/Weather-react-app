@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Input, Button, FormControl } from '@material-ui/core';
+import { Input, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { HomeH1, HomeH3 } from './styled/StyledHome';
 import { Wrapper } from './styled/Wrapper';
 import { CurrentWeatherContainer } from './styled/CurrentWeatherContainer';
 import { WeatherInfo } from './styled/WeatherInfo';
+import { Button } from '../../pages/Home/styled/StyledButton';
 
 class Home extends Component {
 

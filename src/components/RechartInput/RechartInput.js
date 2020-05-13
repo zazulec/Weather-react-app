@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { Text } from './styled/StyledRechartInput';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -34,7 +35,9 @@ export default function RechartInput(props) {
     return (
         <div>
             <FormControl className={classes.form} >
-                <InputLabel id="demo-simple-select-helper-label"> Data </InputLabel>
+                <InputLabel id="demo-simple-select-helper-label" style={{color: 'white'}}>
+                    Data
+                </InputLabel>
                 <Select labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
                     value={rechartInputData}
@@ -45,7 +48,11 @@ export default function RechartInput(props) {
                     <MenuItem value={dayFour.toString()}>{dayFour}</MenuItem>
                     <MenuItem value={dayFive.toString()}>{dayFive}</MenuItem>
                 </Select>
-                <FormHelperText >Chose data to display forecast</FormHelperText>
+                <FormHelperText >
+                    <Text>
+                        Chose data to display forecast
+                    </Text>
+                </FormHelperText>
             </FormControl>
         </div>
 
