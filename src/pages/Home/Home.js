@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Input, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { HomeH1, HomeH3 } from './styled/StyledHome';
-import { Wrapper } from './styled/Wrapper';
-import { CurrentWeatherContainer } from './styled/CurrentWeatherContainer';
-import { WeatherInfo } from './styled/WeatherInfo';
-import { Button } from '../../pages/Home/styled/StyledButton';
+import { Wrapper } from './styled/StyledWrapper';
+import { CurrentWeatherContainer } from './styled/StyledCurrentWeatherContainer';
+import { WeatherInfo } from './styled/StyledWeatherInfo';
+import { Button } from './styled/StyledButton';
+import { Data } from './styled/StyledData';
 
 class Home extends Component {
 
@@ -85,24 +86,22 @@ class Home extends Component {
             <>
                 <CurrentWeatherContainer>
                     <HomeH1>Choose your city:</HomeH1>
-                    <FormControl>
-                        <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here"></Input>
-                        <Button color="disable"  variant="contained" onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
-                    </FormControl>
+                    <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here"></Input>
+                        <Button  onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
                 </CurrentWeatherContainer>
                 <WeatherInfo>
                     {cityName ?
                         <HomeH3>Current weather in city: {cityName} </HomeH3> :
                         <HomeH3> Please insert city name or write it corectly.</HomeH3>}
-                    <div>Current temperature: {currentTemp} &deg;C</div>
-                    <div>Sensed temperature: {sensedTemp} &deg;C</div>
-                    <div>Wind speed: {`${windSpeed} km/h`}</div>
-                    <div>Wind direction:
+                    <Data>Current temperature: {currentTemp} &deg;C</Data>
+                    <Data>Sensed temperature: {sensedTemp} &deg;C</Data>
+                    <Data>Wind speed: {`${windSpeed} km/h`}</Data>
+                    <Data>Wind direction:
                      <ArrowUpwardIcon
                             style={{ transform: `rotate(${windDirection}deg)` }} >
                         </ArrowUpwardIcon>
-                    </div>
-                    <div>{description}</div>
+                    </Data>
+                    <Data>{description}</Data>
                 </WeatherInfo>
             </>
             :

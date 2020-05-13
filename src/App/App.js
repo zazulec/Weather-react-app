@@ -8,6 +8,7 @@ import SiteNavigation from '../components/SiteNavigation/SiteNavigation';
 import RechartInputContext from '../context/RechartInputContext';
 import CurrentWeatherWithLocation from '../pages/CurrentWeatherWithLocation/CurrentWeatherWithLocation';
 import { StyledNav } from './style/StyledApp';
+import { Overlay } from './style/StyledOverlay';
 
 
 function App() {
@@ -18,18 +19,20 @@ function App() {
 
   return (
     <BrowserRouter>
-      <StyledNav>
-        <Header />
-        <SiteNavigation />
-      </StyledNav>
-      <RechartInputContext.Provider value={rechartProviderValue}>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/FiveDays' component={FiveDaysForecast} />
-          <Route path='/GeoLocation' component={CurrentWeatherWithLocation} />
-          <Route component={DefaultPage} />
-        </Switch>
-      </RechartInputContext.Provider>
+      <Overlay>
+        <StyledNav>
+          <Header />
+          <SiteNavigation />
+        </StyledNav>
+        <RechartInputContext.Provider value={rechartProviderValue}>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/FiveDays' component={FiveDaysForecast} />
+            <Route path='/GeoLocation' component={CurrentWeatherWithLocation} />
+            <Route component={DefaultPage} />
+          </Switch>
+        </RechartInputContext.Provider>
+      </Overlay>
     </BrowserRouter>
 
   );
