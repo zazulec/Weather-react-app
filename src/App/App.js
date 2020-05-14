@@ -14,7 +14,10 @@ import { Overlay } from './style/StyledOverlay';
 function App() {
 
   const [rechartInputData, setRechartInputData] = useState();
-  const rechartProviderValue = useMemo(() => ({ rechartInputData, setRechartInputData }), [rechartInputData, setRechartInputData]);
+  const rechartProviderValue = useMemo(() => ({
+    rechartInputData, setRechartInputData
+  }), [rechartInputData, setRechartInputData
+  ]);
 
 
   return (

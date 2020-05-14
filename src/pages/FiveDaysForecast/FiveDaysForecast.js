@@ -5,6 +5,8 @@ import RechartInput from '../../components/RechartInput/RechartInput';
 import RechartInputContext from '../../context/RechartInputContext';
 import { Wrapper } from './styled/StyledFiveDaysForecast';
 import { Button } from './styled/StyledButton';
+import { H1, H3 } from '../Home/styled/StyledTags';
+import { Text } from './styled/StyledText';
 
 class FiveDaysForecast extends Component {
 
@@ -60,6 +62,7 @@ class FiveDaysForecast extends Component {
                 });
             })
     };
+    
     static contextType = RechartInputContext;
 
     handleForecastInput = (event) => {
@@ -78,25 +81,49 @@ class FiveDaysForecast extends Component {
         const cityName = data.city.name;
         const isInputCityEntered = isLoaded ?
             <div>
-                <h1>Choose your city</h1>
+                <H1>Choose your city</H1>
                 <FormControl>
-                    <Input value={this.state.inputCity} onChange={this.handleForecastInput} placeholder="Insert city name here" ></Input>
-                    <Button color="disable"  variant="contained" onClick={this.makeForecastFetch}>Get current weather</Button>
+                    <Input
+                        value={this.state.inputCity}
+                        onChange={this.handleForecastInput}
+                        placeholder="Insert city name here"
+                        style={{ color: 'white' }}>
+                    </Input>
+                    <Button
+                        color="disable"
+                        variant="contained"
+                        onClick={this.makeForecastFetch}>
+                            Get current weather
+                    </Button>
                 </FormControl>
-                <h3>Weather forecast for city:{cityName}</h3>
+                <H3>Weather forecast for city:{cityName}</H3>
                 {data.list.length > 0 ?
                     <div>
-                        <RechartInput data={data} />
-                        {rechartInputData ? <WeatherRechart data={data} /> : <p>Please choose date to display forecast rechart</p>}
-                    </div> : <p>Please enter city name to display forecast</p>}
-            </div> :
+                        <RechartInput data={data} /> 
+                        {rechartInputData ?
+                            <WeatherRechart data={data} />
+                            :
+                            <Text>Please choose date to display forecast rechart</Text>}
+                    </div>
+                    :
+                    <Text>Please enter city name to display forecast</Text>}
+            </div>
+            :
             <div>
-                <h1>Choose your city</h1>
+                <H1>Choose your city</H1>
                 <FormControl>
-                    <Input value={this.state.inputCity} onChange={this.handleForecastInput} placeholder="Insert city name here" ></Input>
-                    <Button onClick={this.makeForecastFetch}>Get weather forecast</Button>
+                    <Input
+                        value={this.state.inputCity}
+                        onChange={this.handleForecastInput}
+                        placeholder="Insert city name here"
+                        style={{ color: 'white' }}>
+                    </Input>
+                    <Button
+                        onClick={this.makeForecastFetch}>
+                            Get weather forecast
+                    </Button>
                 </FormControl>
-                <h1>No city entered</h1>
+                <H1>No city entered</H1>
             </div>
         return (
             <Wrapper>

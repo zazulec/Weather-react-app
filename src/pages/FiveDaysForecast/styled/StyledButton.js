@@ -10,4 +10,5 @@ export const Button = styled.button`
     font-size: 14px;
     margin: 10px;
     outline: none;
+    
 `

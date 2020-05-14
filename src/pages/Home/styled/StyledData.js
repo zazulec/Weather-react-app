@@ -6,4 +6,5 @@ export const Data = styled.div`
     justify-content: center;
     padding: 10px;
     font-size: 20px;
+    
 `

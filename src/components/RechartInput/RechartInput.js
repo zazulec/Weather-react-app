@@ -34,13 +34,18 @@ export default function RechartInput(props) {
     return (
         <div>
             <FormControl className={classes.form} >
-                <InputLabel id="demo-simple-select-helper-label" style={{color: 'white'}}>
+                <InputLabel
+                    id="demo-simple-select-helper-label"
+                    style={{ color: 'white' }}>
                     Data
                 </InputLabel>
-                <Select labelId="demo-simple-select-helper-label"
+                <Select
+                    labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
                     value={rechartInputData}
-                    onChange={handleInputChange}>
+                    onChange={handleInputChange}
+                    style={{ color: 'white' }}
+                >
                     <MenuItem aria-label={"None"} defaultValue="">None</MenuItem>
                     <MenuItem value={dayOne.toString()}>{dayOne}</MenuItem>
                     <MenuItem value={dayTwo.toString()}>{dayTwo}</MenuItem>
@@ -48,11 +53,12 @@ export default function RechartInput(props) {
                     <MenuItem value={dayFour.toString()}>{dayFour}</MenuItem>
                     <MenuItem value={dayFive.toString()}>{dayFive}</MenuItem>
                 </Select>
-                    <Text>
-                        Chose data to display forecast
-                    </Text>
+                <Text>
+                    Chose data to display forecast
+                </Text>
             </FormControl>
         </div>
+
 
     );
 }

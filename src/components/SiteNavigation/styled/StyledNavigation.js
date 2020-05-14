@@ -9,7 +9,7 @@ export const Navigation = styled.div`
     padding-bottom: 20px;
     align-items: center;
 
-    @media (min-width: 880px) {
+@media (min-width: 880px) {
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
@@ -17,7 +17,8 @@ export const Navigation = styled.div`
         margin: auto;
         padding-top: 20px;
         padding-bottom: 20px;
-    }
+}
+
 `
 export const Button = styled.a`
         margin: 10px;
@@ -31,5 +32,6 @@ export const Button = styled.a`
         padding: 10px;
         font-size: medium;
         max-width: 290px;
+        
 `
 

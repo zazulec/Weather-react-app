@@ -33,7 +33,6 @@ class Home extends Component {
         }
     };
 
-
     getWeatherData = () => {
         this.FETCH_URL_DAY = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
@@ -86,15 +85,23 @@ class Home extends Component {
             <>
                 <CurrentWeatherContainer>
                     <H1>Choose your city:</H1>
-                    <Input value={this.state.inputCity} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here"></Input>
-                    <Button onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
+                    <Input
+                        value={this.state.inputCity}
+                        onChange={this.handleCurrentWeatherInput}
+                        placeholder="Insert city name here">
+                    </Input>
+                    <Button
+                        onClick={this.makeCurrentWeatherFetch}>
+                        Get current weather
+                    </Button>
                 </CurrentWeatherContainer>
                 <WeatherInfo>
                     {cityName ?
                         <H3>
                             Current weather in city:
                             <Text>{cityName}</Text>
-                        </H3> :
+                        </H3>
+                        :
                         <H3> Please insert city name or write it corectly.</H3>}
                     <Data>
                         Current temperature:
@@ -127,8 +134,17 @@ class Home extends Component {
                 <CurrentWeatherContainer>
                     <H1>Choose your city</H1>
                     <FormControl>
-                        <Input value={this.state.city} onChange={this.handleCurrentWeatherInput} placeholder="Insert city name here" ></Input>
-                        <Button color="disable" variant="contained" onClick={this.makeCurrentWeatherFetch}>Get current weather</Button>
+                        <Input
+                            value={this.state.city}
+                            onChange={this.handleCurrentWeatherInput}
+                            placeholder="Insert city name here">
+                        </Input>
+                        <Button
+                            color="disable"
+                            variant="contained"
+                            onClick={this.makeCurrentWeatherFetch}>
+                            Get current weather
+                        </Button>
                     </FormControl>
                     <H1>No city entered</H1>
                 </CurrentWeatherContainer>

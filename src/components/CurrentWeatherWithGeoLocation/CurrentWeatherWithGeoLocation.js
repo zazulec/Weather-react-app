@@ -84,7 +84,8 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <h3>Your current position is:</h3>
                 <p>latitude: Loading...</p>
                 <p>longitude: Loading...</p>
-            </> :
+            </> 
+            :
             <>
                 <h3>Your current position:</h3>
                 {/* <MapContainer state={this.state}/> */}
@@ -92,8 +93,12 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <p>longitude: {this.state.longitude}</p>
             </>
         const showGetCurrentWeatherButton = locationLoaded ?
-            <Button onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather</Button> :
-            <ButtonDisabled disabled={true} >Get current weather</ButtonDisabled>
+            <Button 
+                onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather
+            </Button> :
+            <ButtonDisabled 
+                disabled={true}>Get current weather
+            </ButtonDisabled>
 
         const cityName = data.name;
         const currentTemp = data.main.temp;
@@ -141,7 +146,12 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <Wrapper>
                     <H1>Get current weather <br></br>by geolocation</H1>
                     {loadingGeoLocalisation}
-                    <Button color="disable" variant="contained" onClick={this.getGeoPosition}>Get current position</Button>
+                    <Button
+                        color="disable"
+                        variant="contained"
+                        onClick={this.getGeoPosition}>
+                        Get current position
+                    </Button>
                     {showGetCurrentWeatherButton}
                     {isFetchDataLoaded}
                 </Wrapper>

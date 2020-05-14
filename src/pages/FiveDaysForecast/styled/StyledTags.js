@@ -4,7 +4,7 @@ export const H1 = styled.h1`
     text-align: center;
     font-size: 30px;
     padding: 20px;
-
+    
 `
 export const H3 = styled.h3`
     display: flex;
@@ -12,6 +12,7 @@ export const H3 = styled.h3`
     align-item: center;
     justify-content: center;
     font-size: 20px;
-    
+
 `
+
 
