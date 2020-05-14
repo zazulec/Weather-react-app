@@ -1,6 +1,3 @@
----
-permalink: /index.html
----
 ## Application in continuous creation !!!!!!!
 
 This weather app is probably the best weather app in this repository!
