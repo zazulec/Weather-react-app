@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledCurrentWeatherWithGeoLocation';
-// import MapContainer from '../MapContainer/MapContainer';
+// import Map from '../Map/Map';
 
 class CurrentWeatherWithGeoLocation extends Component {
 
@@ -83,7 +83,7 @@ class CurrentWeatherWithGeoLocation extends Component {
             </> :
             <>
                 <h3>Your current position:</h3>
-                {/* <MapContainer state={this.state}/> */}
+                {/* <Map state={this.state}/> */}
                 <p>latitude: {this.state.latitude}</p>
                 <p>longitude: {this.state.longitude}</p>
             </>
