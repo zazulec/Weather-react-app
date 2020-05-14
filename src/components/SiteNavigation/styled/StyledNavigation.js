@@ -8,6 +8,10 @@ export const Navigation = styled.div`
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
+
+    @media  (max-width: 880px) {
+        flex-direction: column;
+    }
 `
 export const Button = styled.a`
     text-decoration: none;
@@ -16,6 +20,13 @@ export const Button = styled.a`
     border: 3px solid darkgoldenrod;
     padding: 10px;
     font-size: medium;
+
+    @media  (max-width: 880px) {
+        margin: 10px;
+        min-width: 217px;
+        text-align: center;
+    }
+   
 `
 
 

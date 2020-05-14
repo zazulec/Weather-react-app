@@ -16,7 +16,6 @@ class Home extends Component {
         isLoaded: false,
         error: null,
         inputCity: '',
-
     };
 
     getInitialDataState() {
