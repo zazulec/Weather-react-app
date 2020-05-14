@@ -3,7 +3,6 @@ import RechartInputContext from '../../context/RechartInputContext';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { Text } from './styled/StyledRechartInput';
@@ -42,17 +41,16 @@ export default function RechartInput(props) {
                     id="demo-simple-select-helper"
                     value={rechartInputData}
                     onChange={handleInputChange}>
+                    <MenuItem aria-label={"None"} defaultValue="">None</MenuItem>
                     <MenuItem value={dayOne.toString()}>{dayOne}</MenuItem>
                     <MenuItem value={dayTwo.toString()}>{dayTwo}</MenuItem>
                     <MenuItem value={dayThree.toString()}>{dayThree}</MenuItem>
                     <MenuItem value={dayFour.toString()}>{dayFour}</MenuItem>
                     <MenuItem value={dayFive.toString()}>{dayFive}</MenuItem>
                 </Select>
-                <FormHelperText >
                     <Text>
                         Chose data to display forecast
                     </Text>
-                </FormHelperText>
             </FormControl>
         </div>
 

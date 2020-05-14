@@ -7,6 +7,7 @@ export const Navigation = styled.div`
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
+    align-items: center;
 
     @media (min-width: 880px) {
         flex-direction: row;
