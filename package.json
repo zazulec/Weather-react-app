@@ -1,8 +1,8 @@
 {
   "name": "weather-app",
-  "homepage": "https://zazulec.github.io/Weather-react-app/",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://zazulec.github.io/Weather-react-app",
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build&&gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
