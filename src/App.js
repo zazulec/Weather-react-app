@@ -21,7 +21,7 @@ function App() {
 
 
   return (
-    <HashRouter>
+    <HashRouter basename="/">
       <Overlay>
         <StyledNav>
           <Header />
