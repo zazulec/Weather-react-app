@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { BrowserRouter, Switch, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
 import DefaultPage from './pages/DefaultPage/DefaultPage';
@@ -21,7 +21,7 @@ function App() {
 
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Overlay>
         <StyledNav>
           <Header />
@@ -36,7 +36,7 @@ function App() {
           </Switch>
         </RechartInputContext.Provider>
       </Overlay>
-    </HashRouter>
+    </BrowserRouter>
 
   );
 }
