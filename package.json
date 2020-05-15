@@ -2,7 +2,6 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://zazulec.github.io/Weather-react-app",
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",

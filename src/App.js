@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Switch, Route, HashRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
 import DefaultPage from './pages/DefaultPage/DefaultPage';
@@ -21,7 +21,7 @@ function App() {
 
 
   return (
-    <HashRouter basename="/">
+    <BrowserRouter>
       <Overlay>
         <StyledNav>
           <Header />
@@ -29,14 +29,14 @@ function App() {
         </StyledNav>
         <RechartInputContext.Provider value={rechartProviderValue}>
           <Switch>
-            <Route exact to='/' component={Home} />
-            <Route  to='/FiveDays' component={FiveDaysForecast} />
-            <Route  to='/GeoLocation' component={CurrentWeatherWithLocation} />
+            <Route exact path='/' component={Home} />
+            <Route  path='/FiveDays' component={FiveDaysForecast} />
+            <Route  path='/GeoLocation' component={CurrentWeatherWithLocation} />
             <Route  component={DefaultPage} />
           </Switch>
         </RechartInputContext.Provider>
       </Overlay>
-    </HashRouter>
+    </BrowserRouter>
 
   );
 }
