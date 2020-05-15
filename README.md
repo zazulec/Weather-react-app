@@ -4,7 +4,7 @@ This weather app is probably the best weather app in this repository!
 Simply app shows current weather and 3 hour forecast for 5 days in Rechartd
 App was created in React.
 
-You can visit my app here: [Weather-React-app](https://zazulec.github.io/Weather-react-app/.)
+You can visit my app here: [Weather-React-app](https://pz-my-apps.web.app/)
 
 ## To run Aplication in your PC
 
