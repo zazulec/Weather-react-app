@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Switch, Route, HashRouter } from "react-router-dom";
+import { Switch, Route, HashRouter, Link } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
 import DefaultPage from './pages/DefaultPage/DefaultPage';
@@ -29,10 +29,10 @@ function App() {
         </StyledNav>
         <RechartInputContext.Provider value={rechartProviderValue}>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/FiveDays' component={FiveDaysForecast} />
-            <Route path='/GeoLocation' component={CurrentWeatherWithLocation} />
-            <Route component={DefaultPage} />
+            <Link exact to='/' component={Home} />
+            <Link  to='/FiveDays' component={FiveDaysForecast} />
+            <Link  to='/GeoLocation' component={CurrentWeatherWithLocation} />
+            <Link  component={DefaultPage} />
           </Switch>
         </RechartInputContext.Provider>
       </Overlay>
