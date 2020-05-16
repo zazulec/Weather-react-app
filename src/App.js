@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Switch, Route, BrowserRouter, Link } from "react-router-dom";
+import { Switch, Route, BrowserRouter, HashRouter, Link } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
 import DefaultPage from './pages/DefaultPage/DefaultPage';
@@ -28,12 +28,15 @@ function App() {
           <SiteNavigation />
         </StyledNav>
         <RechartInputContext.Provider value={rechartProviderValue}>
-          <Switch>
-            <Link exact to='/' component={Home} />
+          <Home/>
+          <FiveDaysForecast/>
+          <CurrentWeatherWithLocation/>
+          {/* <Switch>
+            <Link to='/' component={Home} />
             <Link  to='/FiveDays' component={FiveDaysForecast} />
             <Link  to='/GeoLocation' component={CurrentWeatherWithLocation} />
-            <Link to='/*' component={DefaultPage} />
-          </Switch>
+            <Link component={DefaultPage} />
+            </Switch> */}
         </RechartInputContext.Provider>
       </Overlay>
     </BrowserRouter>
