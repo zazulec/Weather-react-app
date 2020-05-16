@@ -34,7 +34,7 @@ class Home extends Component {
     };
 
     getWeatherData = () => {
-        this.FETCH_URL_DAY = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
+        this.FETCH_URL_DAY = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
         fetch(this.FETCH_URL_DAY)
             .then(response => (response.json()))
@@ -88,7 +88,8 @@ class Home extends Component {
                     <Input
                         value={this.state.inputCity}
                         onChange={this.handleCurrentWeatherInput}
-                        placeholder="Insert city name here">
+                        placeholder="Insert city name here"
+                        style={{ color: 'white' }}>
                     </Input>
                     <Button
                         onClick={this.makeCurrentWeatherFetch}>
@@ -103,6 +104,10 @@ class Home extends Component {
                         </H3>
                         :
                         <H3> Please insert city name or write it corectly.</H3>}
+                    <Data>
+                        Description:
+                        <Text>{description}</Text>
+                    </Data>
                     <Data>
                         Current temperature:
                         <Text>{currentTemp} &deg;C</Text>
@@ -123,10 +128,7 @@ class Home extends Component {
                             </ArrowUpwardIcon>
                         </Text>
                     </Data>
-                    <Data>
-                        Description:
-                        <Text>{description}</Text>
-                    </Data>
+
                 </WeatherInfo>
             </>
             :
@@ -137,7 +139,8 @@ class Home extends Component {
                         <Input
                             value={this.state.city}
                             onChange={this.handleCurrentWeatherInput}
-                            placeholder="Insert city name here">
+                            placeholder="Insert city name here"
+                            style={{ color: 'white' }}>
                         </Input>
                         <Button
                             color="disable"

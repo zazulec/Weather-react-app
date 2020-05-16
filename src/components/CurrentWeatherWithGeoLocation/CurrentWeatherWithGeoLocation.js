@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledCurrentWeatherWithGeoLocation';
-import MapContainer from '../Map/Map';
+// import MapContainer from '../Map/Map';
 import { WeatherInfo } from './styled/StyledWeatherInfo';
 import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
 import { H1 } from '../../pages/Home/styled/StyledTags';
+import { CategoryResult } from './styled/StyledCategoryResult';
 
 class CurrentWeatherWithGeoLocation extends Component {
 
@@ -50,7 +51,7 @@ class CurrentWeatherWithGeoLocation extends Component {
     }
 
     getCurrentWeatherWithGeoLocation = () => {
-        this.FETCH_URL_GEOLOCATION = `http://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
+        this.FETCH_URL_GEOLOCATION = `https://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
         fetch(this.FETCH_URL_GEOLOCATION)
             .then(response => (response.json()))
@@ -84,21 +85,21 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <h3>Your current position is:</h3>
                 <p>latitude: Loading...</p>
                 <p>longitude: Loading...</p>
-               
-            </> 
+
+            </>
             :
             <>
                 <h3>Your current position:</h3>
                 <p>latitude: {this.state.latitude}</p>
                 <p>longitude: {this.state.longitude}</p>
-                
+
             </>
-        const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
+        // const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
         const showGetCurrentWeatherButton = locationLoaded ?
-            <Button 
+            <Button
                 onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather
             </Button> :
-            <ButtonDisabled 
+            <ButtonDisabled
                 disabled={true}>Get current weather
             </ButtonDisabled>
 
@@ -114,41 +115,47 @@ class CurrentWeatherWithGeoLocation extends Component {
         );
         const isFetchDataLoaded = isLoaded ?
             <WeatherInfo>
-                <Data>
-                    City Name:
+                <CategoryResult>
+                    <Data>
+                        City Name:
                     <Text>{cityName}</Text>
-                </Data>
-                <Data>
-                    Current Temp:
-                    <Text>{currentTemp} &deg;C</Text>
-                </Data>
-                <Data>
-                    Sensed Temp:
-                    <Text>{sensedTemp} &deg;C</Text>
-                </Data>
-                <Data>
-                    Wind Speed:
-                    <Text>{`${windSpeed} km/h`}</Text>
-                </Data>
-                <Data>
-                    Wind Direction:
-                     <Text>
-                        <ArrowUpwardIcon
-                            style={{ transform: `rotate(${windDirection}deg)` }} >
-                        </ArrowUpwardIcon>
-                    </Text>
-                </Data>
-                <Data>
-                    Description:
+                    </Data>
+                    <Data>
+                        Description:
                     <Text>{description}</Text>
-                </Data>
+                    </Data>
+                </CategoryResult>
+                <CategoryResult>
+                    <Data>
+                        Current Temp:
+                    <Text>{currentTemp} &deg;C</Text>
+                    </Data>
+                    <Data>
+                        Sensed Temp:
+                    <Text>{sensedTemp} &deg;C</Text>
+                    </Data>
+                </CategoryResult>
+                <CategoryResult>
+                    <Data>
+                        Wind Speed:
+                    <Text>{`${windSpeed} km/h`}</Text>
+                    </Data>
+                    <Data>
+                        Wind Direction:
+                     <Text>
+                            <ArrowUpwardIcon
+                                style={{ transform: `rotate(${windDirection}deg)` }} >
+                            </ArrowUpwardIcon>
+                        </Text>
+                    </Data>
+                </CategoryResult>
             </WeatherInfo> : null;
         return (
             <div>
                 <Wrapper>
                     <H1>Get current weather <br></br>by geolocation</H1>
                     {loadingGeoLocalisation}
-                    {showMap}
+                    {/* {showMap} */}
                     <Button
                         color="disable"
                         variant="contained"
