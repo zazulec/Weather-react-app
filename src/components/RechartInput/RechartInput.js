@@ -21,6 +21,15 @@ export default function RechartInput(props) {
 
     const classes = useStyles();
     const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
+    /*@Piotr: poniższe 5 stałych możesz zamienić sobie na funkcję w której dni liczysz od 0 
+        function getDay(dayNumber) {
+            const {list} = props.data;
+            const day = dayNumber * 8;
+            return (
+                list[day].dt.txt.toString().slice(0, -9);
+            );
+        }
+    */
     const dayOne = props.data.list[0].dt_txt.toString().slice(0, -9);
     const dayTwo = props.data.list[0 + 8].dt_txt.toString().slice(0, -9);
     const dayThree = props.data.list[0 + 16].dt_txt.toString().slice(0, -9);

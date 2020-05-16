@@ -7,8 +7,8 @@ export const HeaderH1 = styled.h1 `
     text-align: center;
     justify-content: center;
     font-size: 30px;
-    pading: 10px; 
-    color: darkgoldenrod;
+    pading: 10px; /*@Piotr: literówka - padding, zainstaluj sobie wtyczkę podświetlającą syntax w styled components: https://styled-components.com/docs/tooling#syntax-highlighting */
+    color: darkgoldenrod; /*@Piotr: kolorki lepiej zapisywać w rgba albo najlepiej w hexach. Możesz np. stworzyć sobie globalnie plik theme.js i tam trzymać kolory jako stałe np. const Blue = '#0062ff'. Będziesz miał pewność że używasz wszędzie tych samych.*/
     margin: 0;
     color: white;
     text-shadow: 2px 2px 0px rgba(184,134,11,0.79);

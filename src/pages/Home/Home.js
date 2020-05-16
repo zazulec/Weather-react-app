@@ -10,14 +10,14 @@ import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
 
 class Home extends Component {
-
+/*@Piotr: w App.js używasz hooków a tu masz klasę - dobrze byłoby to ujednolicić i albo wszędzie hooki, albo wszedzie klasy ew. stateless funkcje*/
     state = {
         data: this.getInitialDataState(),
         isLoaded: false,
         error: null,
         inputCity: '',
     };
-
+/*@Piotr: czemu robisz initial state jako funkcję? Ja zazwyczaj widuję to jako stałą po prostu const initialState = {} */
     getInitialDataState() {
         return {
             weather: [],
@@ -34,12 +34,13 @@ class Home extends Component {
     };
 
     getWeatherData = () => {
+        /*@Piotr: nie sądzę żeby dobrym pomysłem było dodawanie czegokolwiek to this tej funkcji. Zapisz tego urla jako stałą const FETCH_URL_DAY = 'https://...' */
         this.FETCH_URL_DAY = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
         fetch(this.FETCH_URL_DAY)
             .then(response => (response.json()))
             .then(result => {
-                if (result.cod === 200) {
+                if (result.cod === 200 /*@Piotr: tak zapisany numer to tzw. magic number - nie wiadmo czemu jest taki i skąd się wziął. Zapisz go do stałej i jakoś nazwij żeby było wiadomo czemu tu jest. Bo teraz nie za bardzo wiadomo po co jest ten else poniżej i kiedy się dzieje */) {
                     this.setState({
                         isLoaded: true,
                         data: result,
@@ -71,16 +72,20 @@ class Home extends Component {
 
     render() {
         const { data, isLoaded } = this.state;
+        /*@Piotr: możesz zdestrukturyzować też inputCity */
         const cityName = data.name;
+        /*@Piotr: dla lepszej czytelności zdestrukturyzowałbym jeszcze data. Czyli np. const { name, main, wind, weather } = data; */
         const currentTemp = data.main.temp;
         const sensedTemp = Math.round(data.main.feels_like);
         const windSpeed = data.wind.speed;
         const windDirection = data.wind.deg;
+        /*@Piotr: to poniżej nazywane jest partialem i przez niektórych uważane jako antypatern. Nie jest to błąd, ale jak czytasz potem tego JSX-a na dole, to masz wrażenie że {description} to jest string, bo tak się przyjęło zapisywać. Ja bym tą funkcję zrobił bezpośrednio w JSX*/
         const description = data.weather.map(element =>
             <div key={element.id}>
                 {element.description}
             </div>
         )
+        /*@Piotr: ten partial poniżej z kolei już trochę utrudnia czytanie tego kodu (duplikuje się). Za teriary operatora isLoaded wrzuciłbym tylko WeatherInfo a CurrentWeatherContainer i jego dzieciach sterowałbym propsami tylko*/
         const isInputCityEntered = isLoaded ?
             <>
                 <CurrentWeatherContainer>
@@ -89,7 +94,7 @@ class Home extends Component {
                         value={this.state.inputCity}
                         onChange={this.handleCurrentWeatherInput}
                         placeholder="Insert city name here"
-                        style={{ color: 'white' }}>
+                        style={{ color: 'white' }}> {/*@Piotr: kolor weź z theme.js i btw. możesz zrbić z tego styled component jak chcesz więcej styli dodać. Wtedy const CityInput = styled(Input)`` i export Inputa tam*/}
                     </Input>
                     <Button
                         onClick={this.makeCurrentWeatherFetch}>

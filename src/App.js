@@ -27,6 +27,7 @@ function App() {
           <Header />
           <SiteNavigation />
         </StyledNav>
+        {/*@Piotr: wygląda na to że w tej chwili tego contextu używasz tylko w ramach komponentu FiveDaysForecast a tu przekazujesz do wszystkich komponentów - nie pamiętam dokładnie jak to działa, ale wydaje mi się że przerenderowują się wszystkie komponenty - czyli problem z wydajnością*/}
         <RechartInputContext.Provider value={rechartProviderValue}>
           <Switch>
             <Route exact path='/' component={Home} />

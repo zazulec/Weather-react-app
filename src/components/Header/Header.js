@@ -11,3 +11,4 @@ function Header() {
 }
 
 export default Header;
+//@Piotr: generalnie dobrze jest unikać default exportów - jak projekt się rozrasta i używasz tych samych konponentów w różnych miejscach, to IDE przy export default potrafi się pogubić 

@@ -17,7 +17,7 @@ class FiveDaysForecast extends Component {
         inputCity: '',
 
     };
-
+/*@Piotr: jak w Home.js - lepszy initial state jako stała */
     getInitialDataStateForFiveDays() {
         return {
             list: [],
@@ -38,12 +38,13 @@ class FiveDaysForecast extends Component {
     };
 
     getFiveDaysForecast() {
+        /*@Piotr: jak w Home.js - lepiej stała */
         this.FETCH_URL_FIVE_DAYS = `https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${this.state.inputCity}&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
         fetch(this.FETCH_URL_FIVE_DAYS)
             .then(response => (response.json()))
             .then(result => {
-                if (result.cod === '200') {
+                if (result.cod === '200' /*@Piotr: tu masz stringa a w Home.js number. Jak dasz do stałej (może być globalna jeżeli to jest np. status z serwera) to problem zniknie */) {
                     this.setState({
                         isLoaded: true,
                         data: result,
@@ -79,6 +80,7 @@ class FiveDaysForecast extends Component {
         const { data, isLoaded } = this.state;
         const { rechartInputData } = this.context;
         const cityName = data.city.name;
+        /*@Piotr: to samo co w App.js - ten partial jest trochę nieczytelny i duplikuje kod */
         const isInputCityEntered = isLoaded ?
             <div>
                 <H1>Choose your city</H1>
@@ -116,7 +118,7 @@ class FiveDaysForecast extends Component {
                         value={this.state.inputCity}
                         onChange={this.handleForecastInput}
                         placeholder="Insert city name here"
-                        style={{ color: 'white' }}>
+                        style={{ color: 'white' }}>{/*@Piotr: kolor z theme.js*/}
                     </Input>
                     <Button
                         onClick={this.makeForecastFetch}>

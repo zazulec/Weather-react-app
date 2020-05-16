@@ -20,7 +20,7 @@ class CurrentWeatherWithGeoLocation extends Component {
         latitude: null,
         longitude: null,
     }
-
+/*@Piotr: initial state jako const */
     getInitialDataState() {
         return {
             weather: [],
@@ -51,12 +51,13 @@ class CurrentWeatherWithGeoLocation extends Component {
     }
 
     getCurrentWeatherWithGeoLocation = () => {
+        /*@Piotr: const a nie this */
         this.FETCH_URL_GEOLOCATION = `https://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
         fetch(this.FETCH_URL_GEOLOCATION)
             .then(response => (response.json()))
             .then(result => {
-                if (result.cod === 200) {
+                if (result.cod === 200 /*@Piotr: magic number */) {
                     this.setState({
                         isLoaded: true,
                         isLoading: false,
@@ -80,6 +81,7 @@ class CurrentWeatherWithGeoLocation extends Component {
     }
     render() {
         const { isLoading, locationLoaded, data, isLoaded } = this.state
+        /*@Piotr: tu też partiale zaciemniają trochę ten kod. Zrobiłbym 3 osobne komponenty zamiast tych stałych i sterował propsami */
         const loadingGeoLocalisation = isLoading ?
             <>
                 <h3>Your current position is:</h3>
