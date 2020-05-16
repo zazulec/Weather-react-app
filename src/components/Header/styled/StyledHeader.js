@@ -7,7 +7,7 @@ export const HeaderH1 = styled.h1 `
     text-align: center;
     justify-content: center;
     font-size: 30px;
-    pading: 10px; 
+    padding: 10px; 
     color: darkgoldenrod;
     margin: 0;
     color: white;

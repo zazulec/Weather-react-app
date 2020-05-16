@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Input, FormControl } from '@material-ui/core';
-import WeatherRechart from '../../components/WeatherRechart/WeatherRechart';
-import RechartInput from '../../components/RechartInput/RechartInput';
-import RechartInputContext from '../../context/RechartInputContext';
+import { WeatherRechart } from '../../components/WeatherRechart/WeatherRechart';
+import { RechartInput }from '../../components/RechartInput/RechartInput';
+import { RechartInputContext } from '../../context/RechartInputContext';
 import { Wrapper } from './styled/StyledFiveDaysForecast';
 import { Button } from './styled/StyledButton';
-import { H1, H3 } from '../Home/styled/StyledTags';
+import { H1 } from '../../styled/StyledH1';
+import { H3 } from '../../styled/StyledH3';
 import { Text } from './styled/StyledText';
 
 class FiveDaysForecast extends Component {
@@ -38,12 +39,13 @@ class FiveDaysForecast extends Component {
     };
 
     getFiveDaysForecast() {
-        this.FETCH_URL_FIVE_DAYS = `https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${this.state.inputCity}&appid=2e2ff6c3d5791be198f04c78b94573e5`
+        const FETCH_URL_FIVE_DAYS = `https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${this.state.inputCity}&appid=2e2ff6c3d5791be198f04c78b94573e5`;
+        const serverStatusCode = '200';
 
-        fetch(this.FETCH_URL_FIVE_DAYS)
+        fetch(FETCH_URL_FIVE_DAYS)
             .then(response => (response.json()))
             .then(result => {
-                if (result.cod === '200') {
+                if (result.cod === serverStatusCode) {
                     this.setState({
                         isLoaded: true,
                         data: result,
@@ -133,4 +135,4 @@ class FiveDaysForecast extends Component {
     }
 };
 
-export default FiveDaysForecast;
+export { FiveDaysForecast };

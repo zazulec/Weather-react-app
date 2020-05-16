@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import RechartInputContext from '../../context/RechartInputContext'
+import { RechartInputContext } from '../../context/RechartInputContext'
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { Overlay } from './styled/StyledWeatherRechart';
 
@@ -48,4 +48,4 @@ function WeatherRechart(props) {
     );
 }
 
-export default WeatherRechart;
+export { WeatherRechart };

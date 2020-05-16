@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import RechartInputContext from '../../context/RechartInputContext';
+import { RechartInputContext } from '../../context/RechartInputContext';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function RechartInput(props) {
+function RechartInput(props) {
 
     const classes = useStyles();
     const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
@@ -62,3 +62,5 @@ export default function RechartInput(props) {
 
     );
 }
+
+export { RechartInput };

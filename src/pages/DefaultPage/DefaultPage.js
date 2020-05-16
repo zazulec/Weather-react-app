@@ -17,4 +17,4 @@ class DefaultPage extends Component {
     }
 }
 
-export default DefaultPage;
+export { DefaultPage };

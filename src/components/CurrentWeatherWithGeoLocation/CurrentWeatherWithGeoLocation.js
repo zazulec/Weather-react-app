@@ -6,7 +6,7 @@ import { Wrapper } from './styled/StyledCurrentWeatherWithGeoLocation';
 import { WeatherInfo } from './styled/StyledWeatherInfo';
 import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
-import { H1 } from '../../pages/Home/styled/StyledTags';
+import { H1 } from '../../styled/StyledH1';
 import { CategoryResult } from './styled/StyledCategoryResult';
 
 class CurrentWeatherWithGeoLocation extends Component {
@@ -51,12 +51,13 @@ class CurrentWeatherWithGeoLocation extends Component {
     }
 
     getCurrentWeatherWithGeoLocation = () => {
-        this.FETCH_URL_GEOLOCATION = `https://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
+        const FETCH_URL_GEOLOCATION = `https://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`;
+        const serverStatusCode = 200;
 
-        fetch(this.FETCH_URL_GEOLOCATION)
+        fetch(FETCH_URL_GEOLOCATION)
             .then(response => (response.json()))
             .then(result => {
-                if (result.cod === 200) {
+                if (result.cod === serverStatusCode) {
                     this.setState({
                         isLoaded: true,
                         isLoading: false,
@@ -170,4 +171,4 @@ class CurrentWeatherWithGeoLocation extends Component {
     }
 }
 
-export default CurrentWeatherWithGeoLocation;
+export { CurrentWeatherWithGeoLocation };

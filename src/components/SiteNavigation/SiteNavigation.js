@@ -12,4 +12,4 @@ const SiteNavigation = () => {
     )
 }
 
-export default SiteNavigation;
+export { SiteNavigation };

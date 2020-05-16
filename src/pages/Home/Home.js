@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Input, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import { H1, H3 } from './styled/StyledTags';
+import { H1 } from '../../styled/StyledH1';
+import { H3 } from '../../styled/StyledH3';
 import { Wrapper } from './styled/StyledWrapper';
 import { CurrentWeatherContainer } from './styled/StyledCurrentWeatherContainer';
 import { WeatherInfo } from './styled/StyledWeatherInfo';
@@ -34,12 +35,13 @@ class Home extends Component {
     };
 
     getWeatherData = () => {
-        this.FETCH_URL_DAY = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`
+        const FETCH_URL_DAY = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`;
+        const serverStatusCode = 200;
 
-        fetch(this.FETCH_URL_DAY)
+        fetch(FETCH_URL_DAY)
             .then(response => (response.json()))
             .then(result => {
-                if (result.cod === 200) {
+                if (result.cod === serverStatusCode) {
                     this.setState({
                         isLoaded: true,
                         data: result,
@@ -70,13 +72,14 @@ class Home extends Component {
     }
 
     render() {
-        const { data, isLoaded } = this.state;
-        const cityName = data.name;
-        const currentTemp = data.main.temp;
-        const sensedTemp = Math.round(data.main.feels_like);
-        const windSpeed = data.wind.speed;
-        const windDirection = data.wind.deg;
-        const description = data.weather.map(element =>
+        const { data, isLoaded, inputCity, city } = this.state;
+        const { name, main, wind, weather } = data;
+        const cityName = name;
+        const currentTemp = main.temp;
+        const sensedTemp = Math.round(main.feels_like);
+        const windSpeed = wind.speed;
+        const windDirection = wind.deg;
+        const description = weather.map(element =>
             <div key={element.id}>
                 {element.description}
             </div>
@@ -86,7 +89,7 @@ class Home extends Component {
                 <CurrentWeatherContainer>
                     <H1>Choose your city:</H1>
                     <Input
-                        value={this.state.inputCity}
+                        value={inputCity}
                         onChange={this.handleCurrentWeatherInput}
                         placeholder="Insert city name here"
                         style={{ color: 'white' }}>
@@ -137,7 +140,7 @@ class Home extends Component {
                     <H1>Choose your city</H1>
                     <FormControl>
                         <Input
-                            value={this.state.city}
+                            value={city}
                             onChange={this.handleCurrentWeatherInput}
                             placeholder="Insert city name here"
                             style={{ color: 'white' }}>
@@ -162,4 +165,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export { Home };
