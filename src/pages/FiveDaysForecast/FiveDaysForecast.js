@@ -38,7 +38,7 @@ class FiveDaysForecast extends Component {
     };
 
     getFiveDaysForecast() {
-        this.FETCH_URL_FIVE_DAYS = `http://api.openweathermap.org/data/2.5/forecast?units=metric&q=${this.state.inputCity}&appid=2e2ff6c3d5791be198f04c78b94573e5`
+        this.FETCH_URL_FIVE_DAYS = `https://api.openweathermap.org/data/2.5/forecast?units=metric&q=${this.state.inputCity}&appid=2e2ff6c3d5791be198f04c78b94573e5`
 
         fetch(this.FETCH_URL_FIVE_DAYS)
             .then(response => (response.json()))
