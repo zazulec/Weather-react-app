@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../../theme/theme';
 
 export const Title = styled.h1`
     display: flex;
@@ -6,7 +7,7 @@ export const Title = styled.h1`
     justify-content: center;
     font-size: 50px;
     padding: 10px; 
-    color: white;
-    text-shadow: 2px 2px 0px rgba(184,134,11,0.79); 
+    color: ${theme.white};
+    text-shadow: 2px 2px 0px ${theme.goldshadow}; 
 
 `

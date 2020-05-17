@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../../theme/theme';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -6,5 +7,5 @@ export const Wrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     padding: 10px;
-    color: white;
+    color: ${theme.white};
 `

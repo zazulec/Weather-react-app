@@ -18,6 +18,7 @@ export const Navigation = styled.div`
         margin: auto;
         padding-top: 20px;
         padding-bottom: 20px;
+        
 }
 
 `

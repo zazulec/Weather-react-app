@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { theme } from '../../../theme/theme';
 
 export const Button = styled.button`
     color: white;
-    background-color: rgba(184,134,11);
+    background-color: ${theme.gold};
     border-radius: 10px;
     cursor: pointer;
     border: none;
@@ -10,8 +11,10 @@ export const Button = styled.button`
     font-size: 14px;
     margin: 10px;
     outline: none;
+    
 `
 
 export const ButtonDisabled = styled(Button)`
-    background-color: rgba(184,134,11, 0.4);
+    background-color: ${theme.buttonDisable};
+
 `

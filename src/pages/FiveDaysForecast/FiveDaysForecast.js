@@ -78,15 +78,15 @@ class FiveDaysForecast extends Component {
     }
 
     render() {
-        const { data, isLoaded } = this.state;
+        const { data, isLoaded, inputCity } = this.state;
+        const { city,list } = data;
         const { rechartInputData } = this.context;
-        const cityName = data.city.name;
         const isInputCityEntered = isLoaded ?
             <div>
                 <H1>Choose your city</H1>
                 <FormControl>
                     <Input
-                        value={this.state.inputCity}
+                        value={inputCity}
                         onChange={this.handleForecastInput}
                         placeholder="Insert city name here"
                         style={{ color: 'white' }}>
@@ -98,8 +98,8 @@ class FiveDaysForecast extends Component {
                             Get current weather
                     </Button>
                 </FormControl>
-                <H3>Weather forecast for city:{cityName}</H3>
-                {data.list.length > 0 ?
+                <H3>Weather forecast for city:{city.name}</H3>
+                {list.length > 0 ?
                     <div>
                         <RechartInput data={data} /> 
                         {rechartInputData ?
@@ -115,7 +115,7 @@ class FiveDaysForecast extends Component {
                 <H1>Choose your city</H1>
                 <FormControl>
                     <Input
-                        value={this.state.inputCity}
+                        value={inputCity}
                         onChange={this.handleForecastInput}
                         placeholder="Insert city name here"
                         style={{ color: 'white' }}>
