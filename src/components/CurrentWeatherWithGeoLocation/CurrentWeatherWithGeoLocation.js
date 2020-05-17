@@ -80,20 +80,20 @@ class CurrentWeatherWithGeoLocation extends Component {
             })
     }
     render() {
-        const { isLoading, locationLoaded, data, isLoaded } = this.state
+        const { isLoading, locationLoaded, data, isLoaded, latitude, longitude } = this.state
+        const { name, main, wind, weather } = data;
+
         const loadingGeoLocalisation = isLoading ?
             <>
                 <h3>Your current position is:</h3>
                 <p>latitude: Loading...</p>
                 <p>longitude: Loading...</p>
-
             </>
             :
             <>
                 <h3>Your current position:</h3>
-                <p>latitude: {this.state.latitude}</p>
-                <p>longitude: {this.state.longitude}</p>
-
+                <p>latitude: {latitude}</p>
+                <p>longitude: {longitude}</p>
             </>
         // const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
         const showGetCurrentWeatherButton = locationLoaded ?
@@ -104,12 +104,12 @@ class CurrentWeatherWithGeoLocation extends Component {
                 disabled={true}>Get current weather
             </ButtonDisabled>
 
-        const cityName = data.name;
-        const currentTemp = data.main.temp;
-        const sensedTemp = Math.round(data.main.feels_like);
-        const windSpeed = data.wind.speed;
-        const windDirection = data.wind.deg;
-        const description = data.weather.map(element =>
+        const cityName = name;
+        const currentTemp = main.temp;
+        const sensedTemp = Math.round(main.feels_like);
+        const windSpeed = wind.speed;
+        const windDirection = wind.deg;
+        const description = weather.map(element =>
             <div key={element.id}>
                 {element.description}
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navigation, Button } from './styled/StyledNavigation';
+import { Navigation } from './styled/StyledNavigation';
+import { Button } from './styled/StyledButton';
 
 const SiteNavigation = () => {
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../devicesBrakpoints/devicesBrakpoints';
 
 export const Navigation = styled.div`
     display: flex;
@@ -9,7 +10,7 @@ export const Navigation = styled.div`
     padding-bottom: 20px;
     align-items: center;
 
-@media (min-width: 880px) {
+@media ${device.mobile} {
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
@@ -19,19 +20,5 @@ export const Navigation = styled.div`
         padding-bottom: 20px;
 }
 
-`
-export const Button = styled.a`
-        margin: 10px;
-        min-width: 217px;
-        text-align: center;
-        border-radius: 10px;
-        text-decoration: none;
-        color: white;
-        text-shadow: 2px 2px 0px rgba(184,134,11,0.79);
-        border: 3px solid darkgoldenrod;
-        padding: 10px;
-        font-size: medium;
-        max-width: 290px;
-        
 `
 
