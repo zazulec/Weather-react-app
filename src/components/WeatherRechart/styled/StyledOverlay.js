@@ -3,8 +3,7 @@ import { theme } from '../../../theme/theme';
 
 export const Overlay = styled.div`
     background-color: ${theme.overlay};
-    width: 100%;
-    height: 100%;
+    width: 100vh;
     margin-top: 20px;
     
 `

@@ -1,6 +1,6 @@
 import React from 'react';
 import {  GoogleApiWrapper, Marker, Map } from 'google-maps-react';
-import { Wrapper } from './styled/StyledMap';
+import { Wrapper } from './styled/StyledWrapper';
 
 const API_KEY = "AIzaSyD-cAqH3VApCmOxG30Gi89eEgGmo0AQkg4"
 

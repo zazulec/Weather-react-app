@@ -4,7 +4,7 @@ import { theme } from '../../../theme/theme';
 export const Wrapper = styled.div `
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: initial;
     text-align: center;
     height: 100vh;
     width: 100%;

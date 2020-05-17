@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { Button, ButtonDisabled } from './styled/StyledButton';
-import { Wrapper } from './styled/StyledCurrentWeatherWithGeoLocation';
+import { Wrapper } from './styled/StyledWrapper';
 // import MapContainer from '../Map/Map';
 import { WeatherInfo } from './styled/StyledWeatherInfo';
 import { Data } from './styled/StyledData';

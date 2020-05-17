@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Title } from './styled/StyledDefaultPage';
+import { Title } from './styled/StyledTitle';
 
 class DefaultPage extends Component {
     render() {

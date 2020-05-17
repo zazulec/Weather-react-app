@@ -3,7 +3,7 @@ import { Input, FormControl } from '@material-ui/core';
 import { WeatherRechart } from '../../components/WeatherRechart/WeatherRechart';
 import { RechartInput }from '../../components/RechartInput/RechartInput';
 import { RechartInputContext } from '../../context/RechartInputContext';
-import { Wrapper } from './styled/StyledFiveDaysForecast';
+import { Wrapper } from './styled/Wrapper';
 import { Button } from './styled/StyledButton';
 import { H1 } from '../../styled/StyledH1';
 import { H3 } from '../../styled/StyledH3';

@@ -3,7 +3,6 @@ import { device } from '../../../devicesBrakpoints/devicesBrakpoints';
 import { theme } from '../../../theme/theme';
 
 export const HeaderH1 = styled.h1 `
-
     display: flex;
     align-items: center;
     text-align: center;
@@ -16,13 +15,11 @@ export const HeaderH1 = styled.h1 `
     text-shadow: 2px 2px 0px ${theme.goldshadow};
 
 @media ${device.mobile} {
-
         font-size: 42px;
 
 };
 
 @media ${device.screen}{ 
-        
         font-size: 50px;
 
 };
