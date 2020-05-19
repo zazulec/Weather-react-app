@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { device } from '../../../devicesBrakpoints/devicesBrakpoints';
 import { theme } from '../../../theme/theme';
 
-export const HeaderH1 = styled.h1 `
+export const HeaderH1 = styled.h1`
     display: flex;
     align-items: center;
     text-align: center;
