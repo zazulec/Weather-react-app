@@ -7,7 +7,7 @@ import { FiveDaysForecast } from './pages/FiveDaysForecast/FiveDaysForecast';
 import { SiteNavigation }from './components/SiteNavigation/SiteNavigation';
 import { RechartInputContext } from './context/RechartInputContext';
 import { CurrentWeatherWithLocation } from './pages/CurrentWeatherWithLocation/CurrentWeatherWithLocation';
-import { StyledNav } from './styled/StyledApp';
+import { StyledNav } from './styled/StyledNav';
 import { StyledAppOverlay } from './styled/StyledAppOverlay';
 
 

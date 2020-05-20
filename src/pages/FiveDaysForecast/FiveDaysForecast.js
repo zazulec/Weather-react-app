@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, FormControl } from '@material-ui/core';
 import { WeatherRechart } from '../../components/WeatherRechart/WeatherRechart';
-import { RechartInput }from '../../components/RechartInput/RechartInput';
+import { RechartInput } from '../../components/RechartInput/RechartInput';
 import { RechartInputContext } from '../../context/RechartInputContext';
 import { Wrapper } from './styled/Wrapper';
 import { Button } from './styled/StyledButton';
@@ -9,7 +9,7 @@ import { H1 } from '../../styled/StyledH1';
 import { H3 } from '../../styled/StyledH3';
 import { Text } from './styled/StyledText';
 
-class FiveDaysForecast extends Component {
+class FiveDaysForecast extends Component{
 
     state = {
         data: this.getInitialDataStateForFiveDays(),
@@ -64,7 +64,7 @@ class FiveDaysForecast extends Component {
                 });
             })
     };
-    
+
     static contextType = RechartInputContext;
 
     handleForecastInput = (event) => {
@@ -74,12 +74,13 @@ class FiveDaysForecast extends Component {
 
     makeForecastFetch = () => {
         this.getFiveDaysForecast()
+
         this.setState({ inputCity: '' })
     }
 
     render() {
         const { data, isLoaded, inputCity } = this.state;
-        const { city,list } = data;
+        const { city, list } = data;
         const { rechartInputData } = this.context;
         const isInputCityEntered = isLoaded ?
             <div>
@@ -95,13 +96,13 @@ class FiveDaysForecast extends Component {
                         color="disable"
                         variant="contained"
                         onClick={this.makeForecastFetch}>
-                            Get current weather
+                        Get current weather
                     </Button>
                 </FormControl>
                 <H3>Weather forecast for city:{city.name}</H3>
                 {list.length > 0 ?
                     <div>
-                        <RechartInput data={data} /> 
+                        <RechartInput data={data} />
                         {rechartInputData ?
                             <WeatherRechart data={data} />
                             :
@@ -122,7 +123,7 @@ class FiveDaysForecast extends Component {
                     </Input>
                     <Button
                         onClick={this.makeForecastFetch}>
-                            Get weather forecast
+                        Get weather forecast
                     </Button>
                 </FormControl>
                 <H1>No city entered</H1>

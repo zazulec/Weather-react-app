@@ -17,17 +17,30 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function RechartInput(props) {
+interface Data {
+    list: any;
+    dt_txt: any | string;
+};
 
-    const classes = useStyles();
-    const { rechartInputData, setRechartInputData } = useContext(RechartInputContext);
+interface RechartInputProps {
+  data: Data;
+  rechartInputData: any;
+  setRechartInputData: any;
+  
+};
+
+
+function RechartInput(props:RechartInputProps) {
+
+    const classes:any = useStyles();
+    const { rechartInputData, setRechartInputData }: any= useContext(RechartInputContext);
     const dayOne = props.data.list[0].dt_txt.toString().slice(0, -9);
     const dayTwo = props.data.list[0 + 8].dt_txt.toString().slice(0, -9);
     const dayThree = props.data.list[0 + 16].dt_txt.toString().slice(0, -9);
     const dayFour = props.data.list[0 + 24].dt_txt.toString().slice(0, -9);
     const dayFive = props.data.list[0 + 32].dt_txt.toString().slice(0, -9);
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event:any) => {
         setRechartInputData(event.target.value);
     };
 
