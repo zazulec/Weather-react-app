@@ -10,7 +10,7 @@ import { H3 } from '../../styled/StyledH3';
 import { Text } from './styled/StyledText';
 import { SmallWrapper } from './styled/SmallWrapper';
 
-class FiveDaysForecast extends Component{
+class FiveDaysForecast extends Component {
 
     state = {
         data: this.getInitialDataStateForFiveDays(),

@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledWrapper';
-import MapContainer from '../Map/Map';
+// import MapContainer from '../Map/Map';
 import { WeatherInfo } from './styled/StyledWeatherInfo';
 import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
 import { H1 } from '../../styled/StyledH1';
 import { CategoryResult } from './styled/StyledCategoryResult';
+import { LoadingGeoLocalisation } from '../LoadingGeoLocalisation/LoadingGeoLocalisation';
+
 
 class CurrentWeatherWithGeoLocation extends Component {
 
@@ -78,24 +80,13 @@ class CurrentWeatherWithGeoLocation extends Component {
                     error
                 });
             })
-    }
+    };
+    
     render() {
-        const { isLoading, locationLoaded, data, isLoaded, latitude, longitude } = this.state
+        const { locationLoaded, data, isLoaded } = this.state
         const { name, main, wind, weather } = data;
 
-        const loadingGeoLocalisation = isLoading ?
-            <>
-                <h3>Your current position is:</h3>
-                <p>latitude: Loading...</p>
-                <p>longitude: Loading...</p>
-            </>
-            :
-            <>
-                <h3>Your current position:</h3>
-                <p>latitude: {latitude}</p>
-                <p>longitude: {longitude}</p>
-            </>
-        const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
+        // const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
         const showGetCurrentWeatherButton = locationLoaded ?
             <Button
                 onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather
@@ -154,8 +145,8 @@ class CurrentWeatherWithGeoLocation extends Component {
         return (
                 <Wrapper>
                     <H1>Get current weather <br></br>by geolocation</H1>
-                    {loadingGeoLocalisation}
-                    {showMap}
+                    <LoadingGeoLocalisation data={this.state}   />
+                    {/* {showMap} */}
                     <Button
                         color="disable"
                         variant="contained"
