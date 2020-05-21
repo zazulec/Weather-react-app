@@ -7,6 +7,8 @@ export const Wrapper = styled.div `
     flex-direction: initial;
     text-align: center;
     width: 100%;
+    height: 100vh;
     color: ${theme.white};
+    overflow: scroll;
     
 `
