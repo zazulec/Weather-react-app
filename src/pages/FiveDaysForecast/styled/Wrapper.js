@@ -6,7 +6,6 @@ export const Wrapper = styled.div `
     justify-content: center;
     flex-direction: initial;
     text-align: center;
-    height: 100vh;
     width: 100%;
     color: ${theme.white};
     

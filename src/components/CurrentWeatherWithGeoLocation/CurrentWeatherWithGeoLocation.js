@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledWrapper';
-// import MapContainer from '../Map/Map';
+import MapContainer from '../Map/Map';
 import { WeatherInfo } from './styled/StyledWeatherInfo';
 import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
@@ -95,7 +95,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <p>latitude: {latitude}</p>
                 <p>longitude: {longitude}</p>
             </>
-        // const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
+        const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
         const showGetCurrentWeatherButton = locationLoaded ?
             <Button
                 onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather
@@ -152,11 +152,10 @@ class CurrentWeatherWithGeoLocation extends Component {
                 </CategoryResult>
             </WeatherInfo> : null;
         return (
-            <div>
                 <Wrapper>
                     <H1>Get current weather <br></br>by geolocation</H1>
                     {loadingGeoLocalisation}
-                    {/* {showMap} */}
+                    {showMap}
                     <Button
                         color="disable"
                         variant="contained"
@@ -166,7 +165,6 @@ class CurrentWeatherWithGeoLocation extends Component {
                     {showGetCurrentWeatherButton}
                     {isFetchDataLoaded}
                 </Wrapper>
-            </div>
         )
     }
 }

@@ -9,10 +9,16 @@ This weather app is probably the best weather app in this repository!
 Simply app shows current weather and 3 hour forecast for 5 days in Rechartd
 App was created in React.
 
-## You can visit my app here on Firebase (problem with http fetch - Firebase needs fetch on https) [Weather-React-app]
+### Homepage:
+
+On homepage you can check current weather in city you choose.
+
+![Current Weather](https://user-images.githubusercontent.com/60104519/82541885-66f1cb80-9b51-11ea-9b79-88ea54ab4a2e.gif)
+
+## You can visit my app here on Firebase (problem with http fetch - Firebase needs fetch on https) 
 (https://pz-my-apps.web.app/)
 
-## You can visit my app here on GithubPages (GitHub Pages have problem with properly display SPA - showing only home page)[Weather-React-app]
+## You can visit my app here on GithubPages (GitHub Pages have problem with properly display SPA - showing only home page)
 (https://zazulec.github.io/Weather-react-app/)
 
 ## To run Aplication in your PC

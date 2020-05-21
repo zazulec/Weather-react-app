@@ -8,6 +8,7 @@ import { Button } from './styled/StyledButton';
 import { H1 } from '../../styled/StyledH1';
 import { H3 } from '../../styled/StyledH3';
 import { Text } from './styled/StyledText';
+import { SmallWrapper } from './styled/SmallWrapper';
 
 class FiveDaysForecast extends Component{
 
@@ -83,7 +84,7 @@ class FiveDaysForecast extends Component{
         const { city, list } = data;
         const { rechartInputData } = this.context;
         const isInputCityEntered = isLoaded ?
-            <div>
+            <SmallWrapper>
                 <H1>Choose your city</H1>
                 <FormControl>
                     <Input
@@ -101,18 +102,18 @@ class FiveDaysForecast extends Component{
                 </FormControl>
                 <H3>Weather forecast for city:{city.name}</H3>
                 {list.length > 0 ?
-                    <div>
+                    <SmallWrapper>
                         <RechartInput data={data} />
                         {rechartInputData ?
                             <WeatherRechart data={data} />
                             :
                             <Text>Please choose date to display forecast rechart</Text>}
-                    </div>
+                    </SmallWrapper>
                     :
                     <Text>Please enter city name to display forecast</Text>}
-            </div>
+            </SmallWrapper>
             :
-            <div>
+            <SmallWrapper>
                 <H1>Choose your city</H1>
                 <FormControl>
                     <Input
@@ -127,7 +128,7 @@ class FiveDaysForecast extends Component{
                     </Button>
                 </FormControl>
                 <H1>No city entered</H1>
-            </div>
+            </SmallWrapper>
         return (
             <Wrapper>
                 {isInputCityEntered}
