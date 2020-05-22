@@ -7,8 +7,8 @@ const SiteNavigation = () => {
     return (
             <Navigation>
                 <Button as="a" href="/"> Current weather </Button>
-                <Button as="a" href='/GeoLocation' > Weather with GeoLocation </Button>
-                <Button as="a" href="/FiveDays" > Five days forecast </Button>
+                <Button as="a" href='/Weather-react-app/GeoLocation' > Weather with GeoLocation </Button>
+                <Button as="a" href="/Weather-react-app/FiveDays" > Five days forecast </Button>
             </Navigation>
     )
 }

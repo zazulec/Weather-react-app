@@ -20,8 +20,12 @@ function WeatherRechart(props) {
     return (
             <Overlay>
                 <ResponsiveContainer aspect={5} width="100%" height="100%">
-                    <LineChart width={50} height={50} data={rechartInputData ? data : null}>
-                        <Legend verticalAlign="top" height={36} />
+                    <LineChart 
+                    width={500}
+                    height={500}
+                    margin={{ top: 5, right: 30, bottom: 5, left: 0 }}
+                    data={rechartInputData ? data : null}>
+                    <Legend verticalAlign="top" height={36} />
                         <Line
                             name='Temperature'
                             type="monotone"
