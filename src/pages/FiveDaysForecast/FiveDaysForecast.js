@@ -16,7 +16,7 @@ class FiveDaysForecast extends Component {
         data: this.getInitialDataStateForFiveDays(),
         isLoaded: false,
         error: null,
-        inputCity: '',
+        inputCity: " ",
 
     };
 

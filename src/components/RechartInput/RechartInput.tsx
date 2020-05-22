@@ -23,27 +23,30 @@ interface Data {
 };
 
 interface RechartInputProps {
-  data: Data;
-  rechartInputData: any;
-  setRechartInputData: any;
-  
+    data: Data;
+    rechartInputData: any;
+    setRechartInputData: any;
+
 };
 
 
-function RechartInput(props:RechartInputProps) {
+function RechartInput(props: RechartInputProps) {
+    
+    const classes: any = useStyles();
+    const { rechartInputData, setRechartInputData }: any = useContext(RechartInputContext);
+    
+    const dayCurrent = props.data.list[0].dt_txt.toString().slice(0, -9);
+    const dayOne = props.data.list[0 + 8].dt_txt.toString().slice(0, -9);
+    const dayTwo = props.data.list[0 + 16].dt_txt.toString().slice(0, -9);
+    const dayThree = props.data.list[0 + 24].dt_txt.toString().slice(0, -9);
+    const dayFour = props.data.list[0 + 32].dt_txt.toString().slice(0, -9);
+    const dayFive = props.data.list[0 + 39].dt_txt.toString().slice(0, -9);
 
-    const classes:any = useStyles();
-    const { rechartInputData, setRechartInputData }: any= useContext(RechartInputContext);
-    const dayOne = props.data.list[0].dt_txt.toString().slice(0, -9);
-    const dayTwo = props.data.list[0 + 8].dt_txt.toString().slice(0, -9);
-    const dayThree = props.data.list[0 + 16].dt_txt.toString().slice(0, -9);
-    const dayFour = props.data.list[0 + 24].dt_txt.toString().slice(0, -9);
-    const dayFive = props.data.list[0 + 32].dt_txt.toString().slice(0, -9);
-
-    const handleInputChange = (event:any) => {
+    const handleInputChange = (event: any) => {
         setRechartInputData(event.target.value);
     };
 
+  
     return (
         <div>
             <FormControl className={classes.form} >
@@ -60,6 +63,7 @@ function RechartInput(props:RechartInputProps) {
                     style={{ color: 'white' }}
                 >
                     <MenuItem aria-label={"None"} defaultValue="">None</MenuItem>
+                    <MenuItem value={dayCurrent.toString()}>{dayCurrent}</MenuItem>
                     <MenuItem value={dayOne.toString()}>{dayOne}</MenuItem>
                     <MenuItem value={dayTwo.toString()}>{dayTwo}</MenuItem>
                     <MenuItem value={dayThree.toString()}>{dayThree}</MenuItem>

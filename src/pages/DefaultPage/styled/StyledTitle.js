@@ -9,5 +9,7 @@ export const Title = styled.h1`
     padding: 10px; 
     color: ${theme.white};
     text-shadow: 2px 2px 0px ${theme.goldshadow}; 
-
+    margin-bottom: 0;
+    height: 100vh;
+}
 `
