@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledWrapper';
 // import MapContainer from '../Map/Map';
-import { WeatherInfo } from './styled/StyledWeatherInfo';
-import { Data } from './styled/StyledData';
-import { Text } from './styled/StyledText';
 import { H1 } from '../../styled/StyledH1';
-import { CategoryResult } from './styled/StyledCategoryResult';
 import { LoadingGeoLocalisation } from '../LoadingGeoLocalisation/LoadingGeoLocalisation';
+import { FetchDataLoaded } from '../FetchDataLoaded/FetchDataLoaded';
+
+// import { CategoryResult } from '../FetchDataLoaded/styled/StyledCategoryResult';
+// import { Data } from '../FetchDataLoaded/styled/StyledData';
+// import { Text } from '../FetchDataLoaded/styled/StyledText';
+// import { WeatherInfo } from '../FetchDataLoaded/styled/StyledWeatherInfo';
+// import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+
 
 
 class CurrentWeatherWithGeoLocation extends Component {
@@ -80,12 +83,12 @@ class CurrentWeatherWithGeoLocation extends Component {
                     error
                 });
             })
+            
     };
-    
-    render() {
-        const { locationLoaded, data, isLoaded } = this.state
-        const { name, main, wind, weather } = data;
 
+    render() {
+        const { locationLoaded } = this.state
+        
         // const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
         const showGetCurrentWeatherButton = locationLoaded ?
             <Button
@@ -95,53 +98,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                 disabled={true}>Get current weather
             </ButtonDisabled>
 
-        const cityName = name;
-        const currentTemp = main.temp;
-        const sensedTemp = Math.round(main.feels_like);
-        const windSpeed = wind.speed;
-        const windDirection = wind.deg;
-        const description = weather.map(element =>
-            <div key={element.id}>
-                {element.description}
-            </div>
-        );
-        const isFetchDataLoaded = isLoaded ?
-            <WeatherInfo>
-                <CategoryResult>
-                    <Data>
-                        City Name:
-                    <Text>{cityName}</Text>
-                    </Data>
-                    <Data>
-                        Description:
-                    <Text>{description}</Text>
-                    </Data>
-                </CategoryResult>
-                <CategoryResult>
-                    <Data>
-                        Current Temp:
-                    <Text>{currentTemp} &deg;C</Text>
-                    </Data>
-                    <Data>
-                        Sensed Temp:
-                    <Text>{sensedTemp} &deg;C</Text>
-                    </Data>
-                </CategoryResult>
-                <CategoryResult>
-                    <Data>
-                        Wind Speed:
-                    <Text>{`${windSpeed} km/h`}</Text>
-                    </Data>
-                    <Data>
-                        Wind Direction:
-                     <Text>
-                            <ArrowUpwardIcon
-                                style={{ transform: `rotate(${windDirection}deg)` }} >
-                            </ArrowUpwardIcon>
-                        </Text>
-                    </Data>
-                </CategoryResult>
-            </WeatherInfo> : null;
+        
         return (
                 <Wrapper>
                     <H1>Get current weather <br></br>by geolocation</H1>
@@ -154,7 +111,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                         Get current position
                     </Button>
                     {showGetCurrentWeatherButton}
-                    {isFetchDataLoaded}
+                    <FetchDataLoaded data={this.state} />
                 </Wrapper>
         )
     }

@@ -1,6 +1,16 @@
 import React from 'react';
 
-export function LoadingGeoLocalisation(props) {
+// interface LoadingGeoLocalisationProps {
+//     data: DataThisComponent;
+// };
+
+// interface DataThisComponent {
+//     isLoading: boolean;
+//     longitude: Number;
+//     latitude: Number;
+// }
+
+export function LoadingGeoLocalisation(props/*:LoadingGeoLocalisationProps*/) {
     
     const { isLoading, longitude, latitude } = props.data;
     const loadingGeoLocalisation = isLoading ?
