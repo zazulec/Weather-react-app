@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledWrapper';
-// import MapContainer from '../Map/Map';
+import MapContainer from '../Map/Map';
 import { H1 } from '../../styled/StyledH1';
 import { LoadingGeoLocalisation } from '../LoadingGeoLocalisation/LoadingGeoLocalisation';
 import { FetchDataLoaded } from '../FetchDataLoaded/FetchDataLoaded';
@@ -82,7 +82,7 @@ class CurrentWeatherWithGeoLocation extends Component {
     render() {
         const { locationLoaded } = this.state
         
-        // const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
+        const showMap = locationLoaded ? <MapContainer state={this.state}/> : null
         const showGetCurrentWeatherButton = locationLoaded ?
             <Button
                 onClick={this.getCurrentWeatherWithGeoLocation}>Get current weather
@@ -96,7 +96,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                 <Wrapper>
                     <H1>Get current weather <br></br>by geolocation</H1>
                     <LoadingGeoLocalisation data={this.state}   />
-                    {/* {showMap} */}
+                    {showMap}
                     <Button
                         color="disable"
                         variant="contained"
