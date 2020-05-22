@@ -6,14 +6,6 @@ import { H1 } from '../../styled/StyledH1';
 import { LoadingGeoLocalisation } from '../LoadingGeoLocalisation/LoadingGeoLocalisation';
 import { FetchDataLoaded } from '../FetchDataLoaded/FetchDataLoaded';
 
-// import { CategoryResult } from '../FetchDataLoaded/styled/StyledCategoryResult';
-// import { Data } from '../FetchDataLoaded/styled/StyledData';
-// import { Text } from '../FetchDataLoaded/styled/StyledText';
-// import { WeatherInfo } from '../FetchDataLoaded/styled/StyledWeatherInfo';
-// import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-
-
-
 class CurrentWeatherWithGeoLocation extends Component {
 
     state = {
@@ -57,6 +49,7 @@ class CurrentWeatherWithGeoLocation extends Component {
 
     getCurrentWeatherWithGeoLocation = () => {
         const FETCH_URL_GEOLOCATION = `https://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`;
+
         const serverStatusCode = 200;
 
         fetch(FETCH_URL_GEOLOCATION)
