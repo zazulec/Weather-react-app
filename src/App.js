@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Switch, Route, BrowserRouter, Link, HashRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Home } from './pages/Home/Home';
 import { Header } from './components/Header/Header';
 import { DefaultPage } from './pages/DefaultPage/DefaultPage';
@@ -21,25 +21,22 @@ function App() {
 
 
   return (
-
-    <StyledAppOverlay>
-      <StyledNav>
-        <Header />
-        <SiteNavigation />
-      </StyledNav>
-      <RechartInputContext.Provider value={rechartProviderValue}>
-        <HashRouter basename={'/Weather-react-app'}>
+        <BrowserRouter>
+      <StyledAppOverlay>
+        <StyledNav>
+          <Header />
+          <SiteNavigation />
+        </StyledNav>
+        <RechartInputContext.Provider value={rechartProviderValue}>
           <Switch>
-            <Route exact patch='/' component={Home} />
-            <Route patch='/GeoLocation' component={CurrentWeatherWithLocation} />
-            <Route patch='/FiveDays' component={FiveDaysForecast} />
-            {/* <Link component={DefaultPage} /> */}
-          </Switch>
-        </HashRouter>
-      </RechartInputContext.Provider>
-    </StyledAppOverlay>
-
-
+            <Route  exact path='/' component={Home} />
+            <Route  path='/FiveDays' component={FiveDaysForecast} />
+            <Route  path='/GeoLocation' component={CurrentWeatherWithLocation} />
+            <Route component={DefaultPage} />
+            </Switch>
+        </RechartInputContext.Provider>
+      </StyledAppOverlay>
+    </BrowserRouter>
   );
 }
 
