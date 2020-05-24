@@ -6,9 +6,9 @@ const SiteNavigation = () => {
 
     return (
             <Navigation>
-                <Button as="a" href="/"> Current weather </Button>
-                <Button as="a" href='/GeoLocation'> Weather with GeoLocation </Button>
-                <Button as="a" href="/FiveDays"> Five days forecast </Button>
+                <Button to="/"> Current weather </Button>
+                <Button to='/GeoLocation'> Weather with GeoLocation </Button>
+                <Button to="/FiveDays"> Five days forecast </Button>
             </Navigation>
     )
 }

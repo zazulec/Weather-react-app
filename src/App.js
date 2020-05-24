@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 import { Home } from './pages/Home/Home';
 import { Header } from './components/Header/Header';
 import { DefaultPage } from './pages/DefaultPage/DefaultPage';
@@ -19,24 +19,23 @@ function App() {
   }), [rechartInputData, setRechartInputData
   ]);
 
-
   return (
-        <BrowserRouter>
+    <HashRouter>
       <StyledAppOverlay>
         <StyledNav>
-          <Header />
-          <SiteNavigation />
+          <Header/>
+          <SiteNavigation/>
         </StyledNav>
         <RechartInputContext.Provider value={rechartProviderValue}>
           <Switch>
-            <Route  exact path='/' component={Home} />
-            <Route  path='/FiveDays' component={FiveDaysForecast} />
-            <Route  path='/GeoLocation' component={CurrentWeatherWithLocation} />
-            <Route component={DefaultPage} />
-            </Switch>
+            <Route  exact path='/' component={Home}/>
+            <Route  path='/FiveDays' component={FiveDaysForecast}/>
+            <Route  path='/GeoLocation' component={CurrentWeatherWithLocation}/>
+            <Route  path={DefaultPage} />
+          </Switch>
         </RechartInputContext.Provider>
       </StyledAppOverlay>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { theme } from '../../../theme/theme';
+import { HashLink } from 'react-router-hash-link';
 
-export const Button = styled.a`
+export const Button = styled(HashLink)`
         margin: 10px;
         min-width: 217px;
         text-align: center;
