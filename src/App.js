@@ -31,7 +31,7 @@ function App() {
             <Route  exact path='/' component={Home}/>
             <Route  path='/FiveDays' component={FiveDaysForecast}/>
             <Route  path='/GeoLocation' component={CurrentWeatherWithLocation}/>
-            <Route  path={DefaultPage} />
+            <Route  component={DefaultPage} />
           </Switch>
         </RechartInputContext.Provider>
       </StyledAppOverlay>
