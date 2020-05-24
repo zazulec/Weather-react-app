@@ -5,7 +5,6 @@ import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
-
 export function FetchDataLoaded(props) {
 
     const { name, main, wind, weather } = props.data.data;

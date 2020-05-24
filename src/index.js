@@ -1,11 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { App } from './App';  
+import { App } from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
+const INITIAL_STATE = {
+  data: {
+    weather: [],
+    main: {
+      temp: null,
+      feels_like: null,
+    },
+    wind: {
+      speed: null,
+      deg: null,
+    },
+    name: "",
+  },
+  isLoaded: false,
+  error: null,
+  inputCity: '',
+};
+
+
+let store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+function reducer(state = INITIAL_STATE, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1
+    case 'DECREMENT':
+      return state - 1
+    default:
+      return state
+  }
+}
 ReactDOM.render(
-  <App />, document.getElementById('root')
+  <Provider store={store}>
+    <App />
+  </Provider>, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

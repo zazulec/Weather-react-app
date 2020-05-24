@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { Input, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { H1 } from '../../styled/StyledH1';
@@ -11,6 +12,7 @@ import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
 
 class Home extends Component {
+   
 
     state = {
         data: this.getInitialDataState(),

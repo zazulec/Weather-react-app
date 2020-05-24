@@ -20,22 +20,22 @@ function App() {
   ]);
 
   return (
-    <HashRouter>
-      <StyledAppOverlay>
-        <StyledNav>
-          <Header/>
-          <SiteNavigation/>
-        </StyledNav>
-        <RechartInputContext.Provider value={rechartProviderValue}>
-          <Switch>
-            <Route  exact path='/' component={Home}/>
-            <Route  path='/FiveDays' component={FiveDaysForecast}/>
-            <Route  path='/GeoLocation' component={CurrentWeatherWithLocation}/>
-            <Route  component={DefaultPage} />
-          </Switch>
-        </RechartInputContext.Provider>
-      </StyledAppOverlay>
-    </HashRouter>
+      <HashRouter>
+        <StyledAppOverlay>
+          <StyledNav>
+            <Header />
+            <SiteNavigation />
+          </StyledNav>
+          <RechartInputContext.Provider value={rechartProviderValue}>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/FiveDays' component={FiveDaysForecast} />
+              <Route path='/GeoLocation' component={CurrentWeatherWithLocation} />
+              <Route component={DefaultPage} />
+            </Switch>
+          </RechartInputContext.Provider>
+        </StyledAppOverlay>
+      </HashRouter>
   );
 }
 
