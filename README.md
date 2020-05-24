@@ -1,12 +1,8 @@
 # Application in continuous creation !!!!!!!
 
- I am aware that the application does not work well on Firebase and Github. I will try to solve it as soon as possible.
- Soon I will add gifs to the readme file showing the operation of the application.
- At the moment, to fully understand the application, I suggest you clone it.
-
 ## Main info about app:
 This weather app is probably the best weather app in this repository!
-Simply app shows current weather and 3 hour forecast for 5 days in Rechartd
+Simply app shows current weather and 3 hour forecast for 5 days in Rechartd plus you can check current weather in your location powered by google maps.
 App was created in React.
 
 ### Homepage:
@@ -27,11 +23,7 @@ Five days forecast at start looks familiar to Homepage. First of all user choose
 
 ![Five days forecast](https://user-images.githubusercontent.com/60104519/82553683-cdccb000-9b64-11ea-88b6-8001093a39b8.gif)
 
-
-## You can visit my app here on Firebase (problem with http fetch - Firebase needs fetch on https) 
-(https://pz-my-apps.web.app/)
-
-## You can visit my app here on GithubPages (GitHub Pages have problem with properly display SPA - showing only home page)
+## You can visit my app here on GithubPages 
 (https://zazulec.github.io/Weather-react-app/)
 
 ## To run Aplication in your PC
