@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Switch, Route, HashRouter } from "react-router-dom";
-import { Home } from './pages/Home/Home';
+import  Home  from './pages/Home/Home';
 import { Header } from './components/Header/Header';
 import { DefaultPage } from './pages/DefaultPage/DefaultPage';
 import { FiveDaysForecast } from './pages/FiveDaysForecast/FiveDaysForecast';

@@ -5,6 +5,7 @@ import { App } from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { ACTION_TYPES } from './redux/actions/actions';
 
 const INITIAL_STATE = {
   data: {
@@ -22,22 +23,27 @@ const INITIAL_STATE = {
   isLoaded: false,
   error: null,
   inputCity: '',
+  reduxdata: {},
 };
-
 
 let store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-function reducer(state = INITIAL_STATE, action) {
+function reducer(reduxState = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
+    case ACTION_TYPES.LOAD_DATA:
+      return reduxState = {
+        ...reduxState,
+        reduxdata: {
+          data: action.value
+        }
+      };
+    case ACTION_TYPES.DECREMENT: // change
+      return reduxState - 1
     default:
-      return state
+      return reduxState
   }
 }
 ReactDOM.render(

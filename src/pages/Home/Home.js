@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { ACTION_TYPES } from '../../redux/actions/actions';
 import { Input, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { H1 } from '../../styled/StyledH1';
@@ -12,7 +13,6 @@ import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
 
 class Home extends Component {
-   
 
     state = {
         data: this.getInitialDataState(),
@@ -48,6 +48,7 @@ class Home extends Component {
                         isLoaded: true,
                         data: result,
                     })
+                    this.mapDispatchToProps() //redux
                 } else {
                     this.setState({
                         isLoaded: true,
@@ -133,7 +134,6 @@ class Home extends Component {
                             </ArrowUpwardIcon>
                         </Text>
                     </Data>
-
                 </WeatherInfo>
             </>
             :
@@ -166,5 +166,12 @@ class Home extends Component {
         )
     }
 }
+  
+const mapDispatchToProps = dispatch => ({
+    actionAddState: (data) => dispatch({
+      type: ACTION_TYPES.LOAD_DATA,
+      value: data,
+    })
+  });
 
-export { Home };
+export default connect(null,mapDispatchToProps)(Home);
