@@ -9,7 +9,7 @@ import { RechartInputContext } from './context/RechartInputContext';
 import { CurrentWeatherWithLocation } from './pages/CurrentWeatherWithLocation/CurrentWeatherWithLocation';
 import { StyledNav } from './styled/StyledNav';
 import { StyledAppOverlay } from './styled/StyledAppOverlay';
-
+import { StyledAppBackground } from './styled/StyledAppBackground';
 
 function App() {
 
@@ -19,22 +19,27 @@ function App() {
   }), [rechartInputData, setRechartInputData
   ]);
 
+  const sky = '../img/background/sky-690293_1920.jpg';
+
+
   return (
     <HashRouter>
-      <StyledAppOverlay>
-        <StyledNav>
-          <Header/>
-          <SiteNavigation/>
-        </StyledNav>
-        <RechartInputContext.Provider value={rechartProviderValue}>
-          <Switch>
-            <Route  exact path='/' component={Home}/>
-            <Route  path='/FiveDays' component={FiveDaysForecast}/>
-            <Route  path='/GeoLocation' component={CurrentWeatherWithLocation}/>
-            <Route  component={DefaultPage} />
-          </Switch>
-        </RechartInputContext.Provider>
-      </StyledAppOverlay>
+      <StyledAppBackground background='./img/background/sky-690293_1920.jpg'>
+        <StyledAppOverlay>
+          <StyledNav>
+            <Header />
+            <SiteNavigation />
+          </StyledNav>
+          <RechartInputContext.Provider value={rechartProviderValue}>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/FiveDays' component={FiveDaysForecast} />
+              <Route path='/GeoLocation' component={CurrentWeatherWithLocation} />
+              <Route component={DefaultPage} />
+            </Switch>
+          </RechartInputContext.Provider>
+        </StyledAppOverlay>
+      </StyledAppBackground>
     </HashRouter>
   );
 }
