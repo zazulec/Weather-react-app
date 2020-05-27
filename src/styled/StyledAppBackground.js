@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import main from '../img/background/man-3915438_1920.jpg';
 import clouds from '../img/background/clouds-3353159_1920.jpg';
 import lightning from '../img/background/lightning-1158027_1920.jpg';
@@ -36,3 +37,8 @@ export const StyledAppBackground = styled.div`
     padding: 0;
     margin: 0;
 `
+const mapStateToProps = state => ({
+    state: state.value
+  });
+
+  export default connect(mapStateToProps, null)(StyledAppBackground)
