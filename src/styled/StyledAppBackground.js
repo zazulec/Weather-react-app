@@ -9,7 +9,8 @@ import sky from '../img/background/sky-690293_1920.jpg';
 import dawn from '../img/background/dawn-190055_1280.jpg'; // słaba szerokość
 
 function switchBackground(props) {
-    switch (props) {
+    console.log("qqq", props);
+    switch (props.state.state) {
         case 'sky':
             console.log('sky');
             return sky;
@@ -29,7 +30,7 @@ function switchBackground(props) {
 //     }
 // }
 
-export const StyledAppBackground = styled.div`
+const StyledAppBackground = styled.div`
     
     background-image: url(${switchBackground});
     width: 100%;
@@ -37,8 +38,8 @@ export const StyledAppBackground = styled.div`
     padding: 0;
     margin: 0;
 `
-const mapStateToProps = state => ({
-    state: state.value
-  });
+const mapStateToProps = state => (
+    {state: state}
+)
 
-  export default connect(mapStateToProps, null)(StyledAppBackground)
+export default connect(mapStateToProps, null)(StyledAppBackground)

@@ -9,7 +9,7 @@ import { RechartInputContext } from './context/RechartInputContext';
 import { CurrentWeatherWithLocation } from './pages/CurrentWeatherWithLocation/CurrentWeatherWithLocation';
 import { StyledNav } from './styled/StyledNav';
 import { StyledAppOverlay } from './styled/StyledAppOverlay';
-import { StyledAppBackground } from './styled/StyledAppBackground';
+import StyledAppBackground from './styled/StyledAppBackground';
 
 function App() {
  
