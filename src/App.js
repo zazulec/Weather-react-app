@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Switch, Route, HashRouter } from "react-router-dom";
-import { Home } from './pages/Home/Home';
+import  Home  from './pages/Home/Home';
 import { Header } from './components/Header/Header';
 import { DefaultPage } from './pages/DefaultPage/DefaultPage';
 import { FiveDaysForecast } from './pages/FiveDaysForecast/FiveDaysForecast';
@@ -12,19 +12,16 @@ import { StyledAppOverlay } from './styled/StyledAppOverlay';
 import { StyledAppBackground } from './styled/StyledAppBackground';
 
 function App() {
-
+ 
   const [rechartInputData, setRechartInputData] = useState();
   const rechartProviderValue = useMemo(() => ({
     rechartInputData, setRechartInputData
   }), [rechartInputData, setRechartInputData
   ]);
 
-  const sky = '../img/background/sky-690293_1920.jpg';
-
-
   return (
     <HashRouter>
-      <StyledAppBackground background='./img/background/sky-690293_1920.jpg'>
+      <StyledAppBackground >
         <StyledAppOverlay>
           <StyledNav>
             <Header />

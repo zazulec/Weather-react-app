@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Input, FormControl } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { H1 } from '../../styled/StyledH1';
@@ -34,7 +35,7 @@ class Home extends Component {
         }
     };
 
-    getWeatherData = () => {
+    getWeatherData = (props) => {
         const FETCH_URL_DAY = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputCity}&units=metric&appid=2e2ff6c3d5791be198f04c78b94573e5`;
         const serverStatusCode = 200;
 
@@ -46,6 +47,7 @@ class Home extends Component {
                         isLoaded: true,
                         data: result,
                     })
+            // .then(response => this.props.actionCurrentStateToRedux(response)) //redux działa ?
                 } else {
                     this.setState({
                         isLoaded: true,
@@ -64,13 +66,14 @@ class Home extends Component {
     handleCurrentWeatherInput = (event) => {
         event.preventDefault()
         this.setState({ inputCity: event.target.value })
+        this.props.actionCurrentStateToRedux(event.target.value) //redux łapie dane
     }
-
+  
     makeCurrentWeatherFetch = () => {
         this.getWeatherData()
         this.setState({ inputCity: '' })
     }
-
+    
     render() {
         const { data, isLoaded, inputCity, city } = this.state;
         const { name, main, wind, weather } = data;
@@ -163,6 +166,22 @@ class Home extends Component {
             </Wrapper>
         )
     }
-}
+};
 
-export { Home };
+const mapDispatchToProps = (dispatch) => ({
+    actionCurrentStateToRedux: (stateValue) => dispatch({
+        type:"SAVE_CURRENT_WEATHER",
+        value: stateValue,
+    })
+})
+
+// const mapDispatchToProps = dispatch => ({
+//     actionAddTodo: (todo) => dispatch({
+//       type: ACTION_TYPES.ADD_TODO,
+//       value: todo,
+//     })
+//   });
+
+
+export default connect(null, mapDispatchToProps)(Home);
+
