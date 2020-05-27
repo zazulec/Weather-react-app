@@ -58,7 +58,7 @@ function RechartInput(props: RechartInputProps) {
                 <Select
                     labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
-                    value={rechartInputData}
+                    value={rechartInputData || ""}
                     onChange={handleInputChange}
                     style={{ color: 'white' }}
                 >

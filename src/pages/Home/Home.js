@@ -47,12 +47,12 @@ class Home extends Component {
                         isLoaded: true,
                         data: result,
                     })
-            // .then(response => this.props.actionCurrentStateToRedux(response)) //redux działa ?
                 } else {
                     this.setState({
                         isLoaded: true,
                     })
                 }
+                this.props.actionCurrentStateToRedux(result)
             })
             .catch(error => {
                 this.setState({
@@ -66,7 +66,7 @@ class Home extends Component {
     handleCurrentWeatherInput = (event) => {
         event.preventDefault()
         this.setState({ inputCity: event.target.value })
-        this.props.actionCurrentStateToRedux(event.target.value) //redux łapie dane
+        // this.props.actionCurrentStateToRedux(event.target.value) //redux łapie dane
     }
   
     makeCurrentWeatherFetch = () => {
@@ -169,10 +169,11 @@ class Home extends Component {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    actionCurrentStateToRedux: (stateValue) => dispatch({
+    actionCurrentStateToRedux: (response) => dispatch({
         type:"SAVE_CURRENT_WEATHER",
-        value: stateValue,
+        value: response,
     })
+    
 })
 
 // const mapDispatchToProps = dispatch => ({
