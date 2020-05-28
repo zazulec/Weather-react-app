@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { App } from './App';  
+import { App } from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import  thunk  from 'redux-thunk';
 
 const INITIAL_STATE = {};
 function reduxStore(state = INITIAL_STATE, action) {
@@ -13,24 +12,19 @@ function reduxStore(state = INITIAL_STATE, action) {
     case "SAVE_CURRENT_WEATHER":
       return {
         state: action.value
-      }
-    case "RESET_CURRENT_WEATHER":
-      return {}
+      };
     default:
       return state
   }
 };
 
 let store = createStore(reduxStore,
-  compose(
-    applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
 )
 
 ReactDOM.render(
   <Provider store={store}>
-  <App />
+    <App />
   </Provider>
   , document.getElementById('root')
 );

@@ -1,34 +1,44 @@
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import main from '../img/background/man-3915438_1920.jpg';
+import normal from '../img/background/man-3915438_1920.jpg';
 import clouds from '../img/background/clouds-3353159_1920.jpg';
 import lightning from '../img/background/lightning-1158027_1920.jpg';
-import person from '../img/background/person-731165_1920.jpg';
+import boy from '../img/background/person-731165_1920.jpg';
 import sky from '../img/background/sky-690293_1920.jpg';
 
 import dawn from '../img/background/dawn-190055_1280.jpg'; // słaba szerokość
 
 function switchBackground(props) {
-    console.log("qqq", props);
-    switch (props.state.state) {
-        case 'sky':
-            console.log('sky');
+
+    const state = {
+        reduxData: props.state.state
+    }
+    const initialData = {
+        name: '',
+        weather:[
+            {id: 802, main: "Clouds", description: "scattered clouds", icon: "03d"},
+        ],
+    };
+    const backgroundData = state.reduxData || initialData;
+    const setBackground = backgroundData.weather.map(element => element.main);
+    
+    console.log('state', state.reduxData);
+    console.log('backgroundData', backgroundData);
+    console.log('setBackground', setBackground);
+    
+    switch (setBackground) {
+        case 'Sky':
             return sky;
-        case 'clouds':
+        case 'Lightning':
+            return lightning;
+        case 'Boy':
+            return boy;
+        case "Clouds":
             return clouds;
         default:
-            console.log('czy działa')
-            return main;
+            return normal;
     }
 }
-
-// function switchBackground(props.background) {
-//     if (background === "sky") {
-//         return sky
-//     } else {
-//         return main
-//     }
-// }
 
 const StyledAppBackground = styled.div`
     
@@ -39,7 +49,7 @@ const StyledAppBackground = styled.div`
     margin: 0;
 `
 const mapStateToProps = state => (
-    {state: state}
+    { state: state }
 )
 
 export default connect(mapStateToProps, null)(StyledAppBackground)

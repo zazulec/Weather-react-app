@@ -176,13 +176,5 @@ const mapDispatchToProps = (dispatch) => ({
     
 })
 
-// const mapDispatchToProps = dispatch => ({
-//     actionAddTodo: (todo) => dispatch({
-//       type: ACTION_TYPES.ADD_TODO,
-//       value: todo,
-//     })
-//   });
-
-
 export default connect(null, mapDispatchToProps)(Home);
 
