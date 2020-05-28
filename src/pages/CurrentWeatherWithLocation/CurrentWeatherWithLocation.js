@@ -1,5 +1,5 @@
 import React from 'react';
-import { CurrentWeatherWithGeoLocation } from '../../components/CurrentWeatherWithGeoLocation/CurrentWeatherWithGeoLocation';
+import CurrentWeatherWithGeoLocation from '../../components/CurrentWeatherWithGeoLocation/CurrentWeatherWithGeoLocation';
 import { Wrapper } from './styled/Wrapper';
 
 function CurrentWeatherWithLocation() {

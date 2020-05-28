@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Button, ButtonDisabled } from './styled/StyledButton';
 import { Wrapper } from './styled/StyledWrapper';
 import MapContainer from '../Map/Map';
@@ -67,6 +68,7 @@ class CurrentWeatherWithGeoLocation extends Component {
                         isLoading: false,
                     })
                 }
+                this.props.actionCurrentStateToRedux(result)
             })
             .catch(error => {
                 this.setState({
@@ -107,7 +109,15 @@ class CurrentWeatherWithGeoLocation extends Component {
                     <FetchDataLoaded data={this.state} />
                 </Wrapper>
         )
-    }
-}
+    } 
+};
 
-export { CurrentWeatherWithGeoLocation };
+const mapDispatchToProps = (dispatch) => ({
+    actionCurrentStateToRedux: (response) => dispatch({
+        type:"SAVE_CURRENT_WEATHER",
+        value: response,
+    })
+    
+})
+
+export default connect(null, mapDispatchToProps) (CurrentWeatherWithGeoLocation);
