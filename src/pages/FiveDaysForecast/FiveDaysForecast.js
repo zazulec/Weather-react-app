@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Input, FormControl } from '@material-ui/core';
 import { WeatherRechart } from '../../components/WeatherRechart/WeatherRechart';
-import { RechartInput } from '../../components/RechartInput/RechartInput';
+import  RechartInput  from '../../components/RechartInput/RechartInput';
 import { RechartInputContext } from '../../context/RechartInputContext';
 import { Wrapper } from './styled/Wrapper';
 import { Button } from './styled/StyledButton';
@@ -56,6 +57,7 @@ class FiveDaysForecast extends Component {
                         isLoaded: true,
                     })
                 }
+                this.props.actionFiveDaysForecastToRedux(result)
             })
             .catch(error => {
                 this.setState({
@@ -136,5 +138,11 @@ class FiveDaysForecast extends Component {
         );
     }
 };
-
-export { FiveDaysForecast };
+const mapDispatchToProps = (dispatch) => ({
+    actionFiveDaysForecastToRedux: (response) => dispatch({
+        type:"SAVE_FIVE_DAYS_FORECAST",
+        value: response,
+    })
+    
+})
+export default connect(null, mapDispatchToProps)(FiveDaysForecast);

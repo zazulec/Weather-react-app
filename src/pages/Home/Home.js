@@ -66,7 +66,6 @@ class Home extends Component {
     handleCurrentWeatherInput = (event) => {
         event.preventDefault()
         this.setState({ inputCity: event.target.value })
-        // this.props.actionCurrentStateToRedux(event.target.value) //redux łapie dane
     }
   
     makeCurrentWeatherFetch = () => {

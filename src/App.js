@@ -3,7 +3,7 @@ import { Switch, Route, HashRouter } from "react-router-dom";
 import  Home  from './pages/Home/Home';
 import { Header } from './components/Header/Header';
 import { DefaultPage } from './pages/DefaultPage/DefaultPage';
-import { FiveDaysForecast } from './pages/FiveDaysForecast/FiveDaysForecast';
+import  FiveDaysForecast  from './pages/FiveDaysForecast/FiveDaysForecast';
 import { SiteNavigation } from './components/SiteNavigation/SiteNavigation';
 import { RechartInputContext } from './context/RechartInputContext';
 import { CurrentWeatherWithLocation } from './pages/CurrentWeatherWithLocation/CurrentWeatherWithLocation';
