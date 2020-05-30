@@ -15,22 +15,15 @@ function switchBackground(props) {
     }
     const initialData = {
         name: '',
-        weather: [{},
+        weather: [
+            {},
         ],
-        list:[],
     };
+
     const backgroundData = state.reduxData || initialData;
-    // const setBackground = 
-    // const setBackgroundFromCurrentWeather = backgroundData.weather.map(element => element.main).toString();
-    const setBackgroundFromFiveDaysForecast =
-        backgroundData.list.map(element => element.weather[0].main).toString();
+    const setBackground = backgroundData.weather.map(element => element.main).toString();
 
-    console.log('reduxData', state.reduxData);
-    console.log('setBacgroundFiveDaysForecast', setBackgroundFromFiveDaysForecast);
-
-
-
-    switch (setBackgroundFromFiveDaysForecast) {
+    switch (setBackground) {
         case 'Clear':
             return clearSky;
         case 'Haze':

@@ -5,23 +5,20 @@ import { App } from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { ACTION_TYPES } from './redux/actions';
 
 const INITIAL_STATE = {
-  input:{},
 };
+
 function reduxStore(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case "SAVE_CURRENT_WEATHER":
+    case ACTION_TYPES.SAVE_CURRENT_WEATHER:
       return {
         state: action.value
       };
-      case "SAVE_FIVE_DAYS_FORECAST":
+      case ACTION_TYPES.SAVE_FIVE_DAYS_FORECAST: 
         return {
           state: action.value
-        };
-      case "SAVE_RECHART_INPUT_VALUE":
-        return {
-          state: state.input.action.value
         };
     default:
       return state

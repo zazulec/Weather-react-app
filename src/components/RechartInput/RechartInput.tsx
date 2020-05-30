@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { connect } from 'react-redux';
 import { RechartInputContext } from '../../context/RechartInputContext';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -27,7 +26,6 @@ interface RechartInputProps {
     data: Data;
     rechartInputData: any;
     setRechartInputData: any;
-
 };
 
 
@@ -43,11 +41,9 @@ function RechartInput(props: RechartInputProps) {
     const dayFour = props.data.list[0 + 32].dt_txt.toString().slice(0, -9);
     const dayFive = props.data.list[0 + 39].dt_txt.toString().slice(0, -9);
 
-    const handleInputChange = (event: any, props:any) => {
-        setRechartInputData(event.target.value);
-        props.actionFiveDaysForecastToRedux(event.target.value);
-    };
-
+    const handleInputChange = (event: any) => (
+        setRechartInputData(event.target.value)
+    );
   
     return (
         <div>
@@ -80,14 +76,7 @@ function RechartInput(props: RechartInputProps) {
 
 
     );
+   
 };
 
-const mapDispatchToProps = (dispatch:any) => ({
-    actionFiveDaysForecastToRedux: (inputValue:string) => dispatch({
-        type: "SAVE_RECHART_INPUT_VALUE",
-        value: inputValue,
-    })
-    
-});
-
-export default connect(null,mapDispatchToProps)(RechartInput);
+export  { RechartInput };

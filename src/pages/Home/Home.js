@@ -10,6 +10,7 @@ import { WeatherInfo } from './styled/StyledWeatherInfo';
 import { Button } from './styled/StyledButton';
 import { Data } from './styled/StyledData';
 import { Text } from './styled/StyledText';
+import { ACTION_TYPES } from '../../redux/actions';
 
 class Home extends Component {
 
@@ -169,7 +170,7 @@ class Home extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
     actionCurrentStateToRedux: (response) => dispatch({
-        type:"SAVE_CURRENT_WEATHER",
+        type: ACTION_TYPES.SAVE_CURRENT_WEATHER ,
         value: response,
     })
     
