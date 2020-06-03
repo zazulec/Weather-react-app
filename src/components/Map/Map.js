@@ -4,20 +4,7 @@ import { Wrapper } from './styled/StyledWrapper';
 
 const API_KEY = "AIzaSyD-cAqH3VApCmOxG30Gi89eEgGmo0AQkg4"
 
-// interface MapContainerProps {
-//     google: any,
-//     initialCenter: any,
-//     state: {
-//         latitude: number,
-//         longitude: number,
-//     },
-//     onMarkerClick: () => void,
-//     name: {},
-//     zoom: string,
-// };
-
-
-function MapContainer(props/*:MapContainerProps*/) {
+function MapContainer(props) {
    
     return (
         <Wrapper>

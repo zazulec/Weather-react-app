@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@types/material-ui": "^0.21.7",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "jest": "^26.0.1"
   }
 }
