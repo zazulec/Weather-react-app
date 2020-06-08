@@ -19,7 +19,7 @@ function WeatherRechart(props) {
 
     return (
             <Overlay>
-                <ResponsiveContainer aspect={5} width="100%" height="100%">
+                <ResponsiveContainer aspect={5} width={"100%"} /*height={'500px'} nie działa */>
                     <LineChart 
                     width={500}
                     height={500}
