@@ -1,4 +1,3 @@
-# Application in continuous creation !!!!!!!
 
 ## Main info about app:
 This weather app is probably the best weather app in this repository!
