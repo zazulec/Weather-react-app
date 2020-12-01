@@ -2,7 +2,7 @@
 ## Main info about app:
 This weather app is probably the best weather app in this repository!
 Simply app shows current weather and 3 hour forecast for 5 days in Rechartd plus you can check current weather in your location powered by google maps.
-The application dynamically changes the background depending on weather data.
+<b>The application dynamically changes the background depending on weather data.(The screenshots do not show this function as it was introduced after its creation.)</b>
 App was created in React and some Redux. Boosters are Material-Ui, Google Maps, Styled Components, TS,Recharts.  
 
 ### Homepage:
